@@ -117,18 +117,24 @@ class ProductController extends ProductModel{
 
     public function ViewProducts(){
       try{
-      $result=$this->view();
+        $limits=5;
+        $page_Number=isset($_GET['page']) ?$_GET['page'] :1;
+
+        $offset=($page_Number-1)* $limits;
+
+        $result=$this->view($limits ,$offset,$limits);
+
       if($result){
         return $result;
       }
     }catch (Exception $th) {
-      echo $th->getMessage();
+      // echo $th->getMessage();
     }
      
     }
 
 
-    // search Product  ------------------------------------>
+    // search Product by id   ------------------------------------>
 
     public function SearchProduct(){
 
@@ -136,17 +142,44 @@ class ProductController extends ProductModel{
       if(isset($_GET['search'])){
 
         $id=$_GET['search'];
-        $result=$this->search($id);
+        $result=$this->searchbyid($id);
         if($result){
           $row=mysqli_fetch_assoc($result); 
           return $row;
         }
       }
+     
     }
     catch (Exception $th) {
       echo $th->getMessage();
     }
     }
+ 
+      
+      
+      // search Product by name   ------------------------------------>
+
+      public function SearchProductByName(){
+  
+        try{
+        if(isset($_POST['search'])){
+  
+          $name=$_POST['name'];
+          $result=$this->searchbyname($name);
+          if($result){
+          
+            return $result;
+          }
+          else{
+            echo 'no result';
+          }
+        }
+       
+      }
+      catch (Exception $th) {
+        echo $th->getMessage();
+      }
+      }
 
 
     // Update Row of Data in Database  ----------------------------->

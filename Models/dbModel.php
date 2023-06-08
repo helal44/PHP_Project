@@ -45,7 +45,7 @@
 
 
 
-    private function createUsersTable(){
+     function createUsersTable(){
 
         try {
            $con= $this->connect();
@@ -75,7 +75,7 @@
 
 
 
-    private function createProductTable(){
+     function createProductTable(){
 
         try {
            $con= $this->connect();
@@ -104,7 +104,7 @@
 
 
 
-    private function createOrderTable(){
+     function createOrderTable(){
 
         try {
            $con= $this->connect();
@@ -143,7 +143,7 @@
   
 }
 
-        //  $data=new dataBaseController();
+        //  $data=new dbModel();
         // $data->connect();
         // $data->createUsersTable();
         // $data->createProductTable();

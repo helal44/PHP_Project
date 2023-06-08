@@ -24,12 +24,21 @@ class ProductModel extends dbModel{
     }
 
   // get ALL Data from data base ----------------------------->
-  protected function view(){
+  protected function view($limit,$offset,$page_items){
         $con=$this->connect();
-        $sql="SELECT * FROM `Products` WHERE 1";
-        $result=mysqli_query($con,$sql);
+        $sql1="SELECT COUNT(*) FROM `Products` where 1 ";
+        $rows=mysqli_fetch_array(mysqli_query($con,$sql1));
+        
+        $count=ceil($rows[0]/$page_items);
+
+        $sql2="SELECT * FROM `Products` WHERE 1 LIMIT $offset,$limit ";
+        $result=mysqli_query($con,$sql2);
+
+        
+
+        $data=[$result,$count];
         if($result){
-            return $result;
+            return $data;
         }
         else {
             echo mysqli_error($con);
@@ -37,18 +46,39 @@ class ProductModel extends dbModel{
     }
 
 
-    // Search For Row   -------------------------------------->
+    // Search For Row  by id  -------------------------------------->
 
-    public function search($id){
+    public function searchbyid($id){
         $con=$this->connect();
-        $sql="SELECT * FROM `Products` WHERE id=$id";
-        $result=mysqli_query($con,$sql);
-        if($result){
-            return $result;
-        }
-        else{
-            echo mysqli_error($con);
-        }
+   
+            $sql="SELECT * FROM `Products` WHERE id=$id";
+            $result=mysqli_query($con,$sql);
+            if($result){
+                return $result;
+            }
+            else{
+                echo mysqli_error($con);
+            }
+        
+    } 
+
+
+
+     // Search For Row by name  -------------------------------------->
+
+     public function searchbyname($name){
+        $con=$this->connect();
+   
+            $sql="SELECT * FROM `Products` WHERE `name` LIKE '%$name%'";
+            $result=mysqli_query($con,$sql);
+            if($result){
+                return $result;
+            }
+            else{
+                echo mysqli_error($con);
+            }
+        
+       
     }
 
 

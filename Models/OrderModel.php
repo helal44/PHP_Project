@@ -4,22 +4,56 @@ require_once(dirname(__FILE__).'/dbModel.php');
 class OrderModel extends dbModel{
 
 
-    // insert Order ---------------------------------------> >>>>>
-    protected function insert($user_id,$product_id,$state,$amount,$note,$room,$date,$totalPrice){
-    
-        $con=$this->connect();
-        $sql="INSERT INTO `Order`( `user_id`, `product_id`, `state`,`amount`,`note`,`room`,`date`, `totalPrice`) 
-            VALUES ($user_id,$product_id,'$state',$amount,'$note',$room,'$date',$totalPrice) ";
-            $data= mysqli_query($con,$sql);
-            if($data){
-                return true;
-            }
-            else{
-                mysqli_error($con);
-            }
-     
-    }
+        // insert Order ---------------------------------------> >>>>>
+        protected function insert($user_id,$product_id,$state,$amount,$note,$room,$date,$totalPrice){
+        
+            $con=$this->connect();
+            $sql="INSERT INTO `Order`( `user_id`, `product_id`, `state`,`amount`,`note`,`room`,`date`, `totalPrice`) 
+                VALUES ($user_id,$product_id,'$state',$amount,'$note',$room,'$date',$totalPrice) ";
+                $data= mysqli_query($con,$sql);
+                if($data){
+                    return true;
+                }
+                else{
+                    mysqli_error($con);
+                }
+        
+        }
+        
 
+        // Get all confirmed  Orders for Admin  --------------------------------------------> >>>>>>
+
+        protected function ConfirmedORders(){
+
+        $con=$this->connect();
+        $sql="select o.* ,u.name ,u.image from `Order` as o , `Users` as u where state in ('confirm','done') and o.user_id=u.id " ;
+        $result= mysqli_query($con,$sql);
+        if(!$result){
+            return '<br>No No Confirmed ORders'.mysqli_error($con);
+        }
+        else{
+            
+            return $result;
+        }
+        }
+
+
+        // change the state of the confirmed orders to done  --------------------------> >>>>>>>>
+
+        protected function DoneOrders($id){
+
+        $con=$this->connect();
+        $sql="UPDATE `Order` SET `state` ='done'  WHERE id=$id ";
+        $data=mysqli_query($con,$sql);
+
+        if($data){
+            return true;
+        }
+        else{
+                echo '<br>falied'.mysqli_error($con);
+        }
+    }
+    
 
     // search Orders for one users -------------------------------------------->  >>>>>>>>>
 
@@ -63,21 +97,43 @@ class OrderModel extends dbModel{
 
 
 
-      // search Wating Order  --------------------------------------------> >>>>>>
+        // search Wating Order  --------------------------------------------> >>>>>>
 
-      protected function Wating($user_id){
+        protected function Wating($user_id){
 
-        $con=$this->connect();
-        $sql="select * from `Order` where state='waiting' and user_id=$user_id";
-        $result= mysqli_query($con,$sql);
-        if(!$result){
-            return '<br>No OrderWating Item'.mysqli_error($con);
-        }
-        else{
-          
-            return $result;
-        }
-     }
+            $con=$this->connect();
+            $sql="select * from `Order` where state='waiting' and user_id=$user_id";
+            $result= mysqli_query($con,$sql);
+            if(!$result){
+                return '<br>No OrderWating Item'.mysqli_error($con);
+            }
+            else{
+            
+                return $result;
+            }
+         }
+
+
+
+            // get the last five done order for the current user  --------------------------------------------> >>>>>>
+
+         protected function LastDone($user_id){
+
+            $con=$this->connect();
+            $sql2="select o.* ,p.name ,p.image from `Order` as o , `Products` as p where o.user_id=$user_id and o.product_id=p.id and o.state='done'  LIMIT 3";
+            $sql="select * from `Order` where state='done' and user_id=$user_id    LIMIT 5";
+            $result= mysqli_query($con,$sql2);
+            if(!$result){
+                return '<br>No Done Orders Item'.mysqli_error($con);
+            }
+            else{
+            
+                return $result;
+            }
+         }
+
+
+
 
         // increase order amnount by one and update price --------------------------> >>>>>>>>
 
@@ -147,20 +203,20 @@ class OrderModel extends dbModel{
             }
 
 
-    // delete Order ------------------------------------->   >>>>>>>>>>>>>>
-    protected function delete($id){
+            // delete Order ------------------------------------->   >>>>>>>>>>>>>>
+            protected function delete($id){
 
-        $con=$this->connect();
-        $sql="DELETE FROM `Order` WHERE id=$id";
-        $result=mysqli_query($con,$sql);
-        if($result){
-            return true;
-        }
-        else{
-            echo mysqli_error($con);
-        }
+                $con=$this->connect();
+                $sql="DELETE FROM `Order` WHERE id=$id";
+                $result=mysqli_query($con,$sql);
+                if($result){
+                    return true;
+                }
+                else{
+                    echo mysqli_error($con);
+                }
 
-    }
+            }
 
     
 }

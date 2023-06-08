@@ -29,10 +29,13 @@
                 <a class="nav-link" href="/project/Views/Admin/Users/Users.php">Users</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">ManulOrder</a>
+                <a class="nav-link" href="/project/Views/Admin/ManualOrders.php">ManulOrder</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/project/Views/Admin/Checks.php">Checks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/project/Views/Admin/CurrentOrders.php">CurrentOrders</a>
             </li>
             <?php } 
                 else if(isset($_SESSION['role'])){

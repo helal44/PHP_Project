@@ -36,6 +36,38 @@
             }
         }
 
+        // Admin Create Order For Users ------------------------------------------>$_COOKIE
+
+          // insert order item ---------------------------------->
+          public  function  AdminAddItem(){
+            try {
+                if(isset($_GET['user_id'])){
+                    if(isset($_GET['item'])){
+                       
+                        $Product_id=$_GET['item'];
+                        $user_id=$_GET['user_id'];
+                        $state='waiting';
+                        $amount=1;
+                        $note='';
+                        $room=$_GET['room'];
+                        $date= date('Y-m-d H:i:s'); 
+                        $price=$_GET['price'];
+                    
+                        $check=$this->check($user_id,$Product_id);
+                        if($check->num_rows ==0){
+                            $this->insert($user_id,$Product_id,$state,$amount,$note,$room,$date,$price);
+                        }
+                        
+                    }
+                }elseif(isset($_GET['item'])){
+                    echo 'You Shoud Choose User First';
+                }
+
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+        }
+
 
         // view all  wating item  ------------------------------------------------->
 
@@ -111,6 +143,37 @@
         }
 
 
+        //get All Confirmed Orders For Admin -------------------------------------------->$_COOKIE
+
+        public function GetConfirmedOrders(){
+            try {
+                $result=$this->ConfirmedORders();
+                if($result){
+                    return $result;
+                }
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+        }
+
+
+         //Change the Confirmed oprders to Done  Admin -------------------------------------------->$_COOKIE
+
+         public function GetOrderDone(){
+            try {
+              if(isset($_GET['done_id'])){
+
+                $id=$_GET['done_id'];
+                 $this->DoneOrders($id);
+
+              }
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+        }
+
+
+
 
         // incease amount of item  by one on click ------------------------------->
 
@@ -120,7 +183,7 @@
                     $id=$_GET['id'];
                 $product_id=$_GET['increase'];
                 $product=new ProductModel();
-                $result=mysqli_fetch_assoc($product->search($product_id));
+                $result=mysqli_fetch_assoc($product->searchbyid($product_id));
                 $price=$result['price'];
                 $this->increase($id,$price);
 
@@ -138,7 +201,7 @@
                     $id=$_GET['id'];
                 $product_id=$_GET['decrease'];
                 $product=new ProductModel();
-                $result=mysqli_fetch_assoc($product->search($product_id));
+                $result=mysqli_fetch_assoc($product->searchbyid($product_id));
                 $price=$result['price'];
               
                 $this->decrease($id,$price);
@@ -189,8 +252,31 @@
                     return mysqli_fetch_assoc($result);
                 }
             } catch (\Throwable $th) {
-                //throw $th;
+                throw $th;
             }
+        }
+
+
+        // get the last 5 done orders for thje curren user ----------------------------------------->$_COOKIE
+
+
+        public function LastUSerDoneOrders(){
+
+            try {
+                session_start();
+                $user_id=$_SESSION['id'];
+                $Role=$_SESSION['role'];
+                 if($Role=='user'){
+                    $result=$this->LastDone($user_id);
+                    if($result){
+                        return $result;
+                    }
+                 }
+               
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+
         }
 
 
