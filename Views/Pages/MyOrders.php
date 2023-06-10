@@ -59,6 +59,7 @@ require_once(dirname(__FILE__).'/../../Controllers/OrderController.php');
                 <th>Date</th>
                 <th>Room</th>
                 <th>TotalPrice</th>
+                <th>Notes</th>
                 <th>Action</th>
             </thead>
             <tbody>
@@ -91,9 +92,12 @@ require_once(dirname(__FILE__).'/../../Controllers/OrderController.php');
                   
                     <td><?php echo $row['room'] ?></td>
                     <td><?php echo $row['totalPrice'] ?> EGP</td>
+                    <td><?php echo $row['note'] ?> </td>
                     <td>
-                        <a href="?cancel=<?php echo $row['id'] ?>" class="btn btn-warning my-2">Cancel</a>
-                        <a href="?confirm=<?php echo $row['id'] ?>" class="btn btn-primary">Confirm</a>
+                       
+                        <a href="./EditOrder.php?search=<?php echo $row['product_id'] ?>" class="btn btn-warning mt-2">Edit</a>
+                        <a href="?confirm=<?php echo $row['id'] ?>" class="btn btn-primary mt-2">Confirm</a>
+                        <a href="?cancel=<?php echo $row['id'] ?>" class="btn btn-danger mt-2">Cancel</a>
                     </td>
                 </tr>
                 <?php }?>

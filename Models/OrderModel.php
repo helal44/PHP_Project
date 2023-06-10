@@ -9,9 +9,10 @@ class OrderModel extends dbModel{
         
             $con=$this->connect();
             $sql="INSERT INTO `Order`( `user_id`, `product_id`, `state`,`amount`,`note`,`room`,`date`, `totalPrice`) 
-                VALUES ($user_id,$product_id,'$state',$amount,'$note',$room,'$date',$totalPrice) ";
+                         VALUES ($user_id,$product_id,'$state',$amount,'$note',$room,'$date',$totalPrice) ";
                 $data= mysqli_query($con,$sql);
                 if($data){
+                    echo 'ORder Added';
                     return true;
                 }
                 else{
@@ -115,13 +116,53 @@ class OrderModel extends dbModel{
 
 
 
+         // search one order by id for the current user ---------------------------->$_COOKIE
+
+          
+        protected function FindOrder($product_id,$user_id){
+
+            $con=$this->connect();
+     
+            $sql="select o.* ,p.name ,p.image from `Order` as o ,`Products` as p where o.product_id=$product_id and o.user_id=$user_id and p.id=$product_id";
+            $result= mysqli_query($con,$sql);
+            if(!$result){
+                echo '<br>No OrderWating Item'.mysqli_error($con);
+            }
+            else{
+            
+                
+                return $result;
+            }
+         }
+
+
+
+            // Update  Order notes and room by usedr ----------------------------------------> >>>>>>>>>
+
+            protected function UpdateOrder($id,$note,$room){
+
+                $con=$this->connect();
+                $sql="UPDATE `Order` SET  `note`='$note' ,`room`= $room WHERE id=$id ";
+                $data=mysqli_query($con,$sql);
+        
+                if($data){
+                    return true;
+                }
+                else{
+                        echo '<br>falied'.mysqli_error($con);
+                }
+            }
+
+
+
+
             // get the last five done order for the current user  --------------------------------------------> >>>>>>
 
          protected function LastDone($user_id){
 
             $con=$this->connect();
             $sql2="select o.* ,p.name ,p.image from `Order` as o , `Products` as p where o.user_id=$user_id and o.product_id=p.id and o.state='done'  LIMIT 3";
-            $sql="select * from `Order` where state='done' and user_id=$user_id    LIMIT 5";
+            // $sql="select * from `Order` where state='done' and user_id=$user_id    LIMIT 5";
             $result= mysqli_query($con,$sql2);
             if(!$result){
                 return '<br>No Done Orders Item'.mysqli_error($con);
