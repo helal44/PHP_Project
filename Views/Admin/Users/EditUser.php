@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['name'])){
+    if($_SESSION['role'] !='admin'){
       header('Location:../../Pages/Login.php');
       exit();
     }
@@ -49,19 +49,28 @@
         <label for="confirm-password">Confirm Password</label>
         <input type="password" class="form-control" id="confirm-password" name="confirmPassword" placeholder="Confirm your password" value="<?php echo $data['password'] ?>">
       </div>
+      <div class="form-group">
+        <label for="role">USer Role</label>
+       <select name="role"  class="form-control">
+     
+        <option value="admin">Admin </option>
+        <option value="user">User</option>
+       </select>
+      </div>
 
       <div class="form-group">
         <label for="room">Room No</label>
        <select name="room" id="room" class="form-control">
-        <option value="1">Application1</option>
-        <option value="2">Application2</option>
-        <option value="3">Application3</option>
+    
+        <option value="1">Room 1</option>
+        <option value="2">Room 2</option>
+        <option value="3">Room 2</option>
        </select>
       </div>
 
       <div class="form-group">
         <label for="image">Choose Image</label>
-        <input type="file" class="form-control" id="image" name="image" placeholder="Enter your name">
+        <input type="file" class="form-control p-1" id="image" name="image" placeholder="Enter your name">
         <span class="my-4 mx-5" >    
                 Current Image
                 <img src="/project/Public/Images/Users/<?php echo $data['image'] ?>" alt="img" width="80"/>
@@ -72,6 +81,7 @@
       <?php
        $user->updateUser();
        $errors=$user->errors;
+    
        foreach($errors as $key=>$error){
           echo '<p class="text-danger">'.$key.'=>'.$error.'</p>';
        }

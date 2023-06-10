@@ -1,9 +1,10 @@
 <?php 
 session_start();
-if(!isset($_SESSION['role'])){
+if($_SESSION['role'] !='admin'){
   header('Location:../../Pages/Login.php');
   exit();
 }
+
 
 require_once(dirname(__FILE__).'/../../../Controllers/ProductController.php');
 

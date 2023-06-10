@@ -60,9 +60,12 @@ $Product=new ProductController();
               </div>
               <hr>
                
-              <hr>
-              <?php }?>
+              <?php }
+              
+              $order->AddItem() ;
+              ?>
              
+                  <hr>
                
             <div class=" d-flex flex-wrap justify-content-center ">
               <?php
@@ -102,7 +105,7 @@ $Product=new ProductController();
                     <?php } }
                   }
 
-                  $order->AddItem() ;
+               
 
               ?>
               

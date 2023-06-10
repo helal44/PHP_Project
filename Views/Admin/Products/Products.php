@@ -1,6 +1,6 @@
 <?php 
   session_start();
-  if(!isset($_SESSION['name'])){
+  if($_SESSION['role'] !='admin'){
     header('Location:../../Pages/Login.php');
     exit();
   }
@@ -50,7 +50,7 @@
                 <th>Actions</th>
               </thead>
               <tbody>
-            <?php while($row=mysqli_fetch_assoc($data)){?>
+            <?php while($row=mysqli_fetch_assoc($data[0])){?>
               <tr>
                 <td><?php echo $row['id'] ?></td>
                 <td> <img src="/project/Public/Images/Products/<?php echo $row['image'] ?>" alt="img" width="50"/></td>
@@ -74,6 +74,17 @@
               </tbody>
           </table>
         </div>
+
+        <div d-flex flex-wrap justify-content-center >
+            <?php
+                for ($i = 1; $i <=$data[1]; $i++) {
+                
+                    echo "<a class='btn btn-primary mx-2' href='?page=$i'>$i</a> ";
+                  
+                }
+              
+              ?>
+           </div>
        
     </div>
   </div>

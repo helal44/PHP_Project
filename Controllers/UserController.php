@@ -33,25 +33,28 @@ class UserController extends UserModel {
     protected function ValidateRegisteUser($name,$email,$password,$confirmPassword,$image){
     
         if(empty($name) ){
-          $this->errors['name']='name is requierd';
+          $this->errors['Name']='name is requierd';
          
         }else{
           if(preg_match('/^[a-zA-z]*$/',$name)==0){
-            $this->errors['name']='name should be string';
+            $this->errors['Name']='name should be string';
           }
         }
     
+
         if(empty($email)){
             $this->errors['email']='email is requierd';       
           }else{
 
             if(filter_var($email,FILTER_VALIDATE_EMAIL)==false){
-              $this->errors['email']='email not valid';
+              $this->errors['Email']='email not valid';
             }
           }
     
+
+
           if(empty($password)){
-            $this->errors['password']='password is requierd';
+            $this->errors['Password']='password is requierd';
     
           }else{
 
@@ -60,19 +63,22 @@ class UserController extends UserModel {
                $this->errors['Password']='invalid Password';
             }
           }
-    
+          
+        
           if(empty($confirmPassword)){
-            $this->errors['confirmpassword']='confirmpassword is requierd';
+            $this->errors['Confirmpassword']='confirmpassword is requierd';
             
           }
-          else{
-            if($confirmPassword !=$password){
-              $this->errors['confirmpassword']='confirmpassword not equal to password';
+         else{
+                if($confirmPassword !=$password){
+                  $this->errors['Confirmpassword']='confirmpassword not equal to password';
+                }
           }
-          }
-    
+
+
+
           if(empty($image)){
-            $this->errors['image']='image is requierd';
+            $this->errors['Image']='image is requierd';
           }
     
           return $this->errors;
@@ -128,6 +134,8 @@ class UserController extends UserModel {
                 $room=$_POST['room'];
                 $image=$_FILES['image']['name'];
                 $role='user';
+            
+              
 
                 $errors=$this->ValidateRegisteUser($name,$email,$password,$confirmPassword,$image);
                 if(empty($errors)){
@@ -234,12 +242,14 @@ class UserController extends UserModel {
         public  function SearchUser(){
 
             try {    
+                if(isset($_GET['search'])){
 
-               $id=$_GET['search'];
-                $result=$this->search($id);
-                if($result){
-                    $row=mysqli_fetch_assoc($result); 
-                    return $row;
+                  $id=$_GET['search'];
+                  $result=$this->search($id);
+                  if($result){
+                      $row=mysqli_fetch_assoc($result); 
+                      return $row;
+                  }
                 }
             } catch (Exception $th) {
                 echo $th->getMessage();
@@ -260,7 +270,9 @@ class UserController extends UserModel {
                     $confirmPassword=$_POST['confirmPassword'];
                     $room=$_POST['room'];
                     $image=$_FILES['image']['name'];
-                    $role='user';
+                    $role=$_POST['role'];
+
+             
     
                     $errors=$this->ValidateRegisteUser($name,$email,$password,$confirmPassword,$image);
                     if(empty($errors)){
@@ -269,7 +281,10 @@ class UserController extends UserModel {
                        if($im){
                         $result=$this->update($id,$name,$email,$password,$room,$image,$role);
                         if($result){
-                            // actions 
+                            
+                          header('Location:./Users.php');
+
+                          echo '<h3 class="text-success"> User Updated Successfly</h3>';
                         }
                        }
     
