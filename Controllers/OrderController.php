@@ -74,12 +74,14 @@
         public function WatingItems(){
 
             try {
+                if($_SESSION['id']){
                 session_start();
                 $user_id=$_SESSION['id'];
                 $result=$this->Wating($user_id);
                 if($result->num_rows>0){
                     $num=$result->num_rows;
                     return $num;
+                }
                 }
             } catch (\Throwable $th) {
                 throw $th;
