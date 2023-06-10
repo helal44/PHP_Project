@@ -10,7 +10,7 @@
         public  function  AddItem(){
             try {
                 if(isset($_GET['item'])){
-                    session_start();
+                    // session_start();
                     $Product_id=$_GET['item'];
                     $user_id=$_SESSION['id'];
                     $state='waiting';
@@ -74,13 +74,17 @@
         public function WatingItems(){
 
             try {
-                session_start();
-                $user_id=$_SESSION['id'];
-                $result=$this->Wating($user_id);
-                if($result->num_rows>0){
-                    $num=$result->num_rows;
-                    return $num;
+                if($_SESSION['id']){
+                    // session_start();
+                    $user_id=$_SESSION['id'];
+                    $result=$this->Wating($user_id);
+                    if($result->num_rows>0){
+                        $num=$result->num_rows;
+                        return $num;
+                    }
+
                 }
+               
             } catch (\Throwable $th) {
                 throw $th;
             }
@@ -113,7 +117,7 @@
 
                 else{
 
-                    session_start();
+                    // session_start();
                     $user_id=$_SESSION['id'];  // for current user to show his ordesr
    
                     if(isset($_POST['SearchByDate'])){
@@ -245,7 +249,7 @@
 
         public function GetTotalPrice(){
             try {
-                session_start();
+                // session_start();
                 $user_id=$_SESSION['id'];
                 $result=$this->totalPrice($user_id);
                 if($result){
@@ -263,7 +267,7 @@
         public function LastUSerDoneOrders(){
 
             try {
-                session_start();
+                // session_start();
                 $user_id=$_SESSION['id'];
                 $Role=$_SESSION['role'];
                  if($Role=='user'){

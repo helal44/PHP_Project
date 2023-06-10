@@ -17,39 +17,40 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
         <?php 
-              session_start();
+            //   session_start();
 
            if(isset($_SESSION['role']) && $_SESSION['role']=='admin'){
            ?>
               
             <li class="nav-item">
-                <a class="nav-link" href="/project/Views/Admin/Products/Products.php">Products</a>
+                <a class="nav-link" href="/PHP_Project/Views/Admin/Products/Products.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/project/Views/Admin/Users/Users.php">Users</a>
+                <a class="nav-link" href="/PHP_Project/Views/Admin/Users/Users.php">Users</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/project/Views/Admin/ManualOrders.php">ManulOrder</a>
+                <a class="nav-link" href="/PHP_Project/Views/Admin/ManualOrders.php">ManulOrder</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/project/Views/Admin/Checks.php">Checks</a>
+                <a class="nav-link" href="/PHP_Project/Views/Admin/Checks.php">Checks</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/project/Views/Admin/CurrentOrders.php">CurrentOrders</a>
+                <a class="nav-link" href="/PHP_Project/Views/Admin/CurrentOrders.php">CurrentOrders</a>
             </li>
             <?php } 
                 else if(isset($_SESSION['role'])){
             ?>
                 
               <li class="nav-item">
-                <a class="nav-link" href="/project/Views/Pages/MyOrders.php">MyOrders</a>
+                <a class="nav-link" href="/PHP_Project/Views/Pages/MyOrders.php">MyOrders</a>
              </li>
             <?php }?>
         </ul>
        
 
         <ul class="navbar-nav ml-auto">
-           <?php session_start();
+           <?php
+            // session_start();
            if(isset($_SESSION['role']) && $_SESSION['role']=='admin'){
            ?>
             <li class="nav-item">
