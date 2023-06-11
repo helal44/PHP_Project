@@ -30,6 +30,9 @@
                 <a class="nav-link" href="/project/Views/Admin/Users/Users.php">Users</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/project/Views/Admin/Categories/Categories.php">Categories</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/project/Views/Admin/ManualOrders.php">ManulOrder</a>
             </li>
             <li class="nav-item">
