@@ -26,14 +26,20 @@ $Product=new ProductController();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../Public/Styles/Style.css">
   <title>Home Page</title>
 </head>
 <body>
+
+
   <div class="container-fluid my-1">
 
-  <?php require_once(dirname(__FILE__).'/../Includes/Navbar.php') ;?>
+  <?php require_once(dirname(__FILE__).'/../Includes/Navbar.php') ;
+   require_once(dirname(__FILE__).'/../Includes/SearchBar.php') ;?>
 
-            <?php require_once(dirname(__FILE__).'/../Includes/SearchBar.php') ;?>
+            <?php
+            //  require_once(dirname(__FILE__).'/../Includes/SearchBar.php') ;
+             ?>
 
             <?php if($lastOrders ) {?>
 
@@ -45,7 +51,7 @@ $Product=new ProductController();
                  while($row=mysqli_fetch_assoc($lastOrders)){
                   ?>
                     <div class=" card m-3 align-items-center shadow p-2  ">
-                      <img class="card-image " src="/project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
+                      <img class="card-image " src="/PHP_Project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
                       <div class="card-body">
                           <h2 class="card-title"><?php echo $row['name'] ?></h2>
                           
@@ -58,14 +64,14 @@ $Product=new ProductController();
                
 
               </div>
-              <hr>
+              <!-- <hr> -->
                
               <?php }
               
               $order->AddItem() ;
               ?>
              
-                  <hr>
+                  <!-- <hr> -->
                
             <div class=" d-flex flex-wrap justify-content-center ">
               <?php
@@ -80,7 +86,7 @@ $Product=new ProductController();
                       if($row['state']=='available'){
                       ?>
                       <div class=" card m-3 align-items-center shadow p-2  ">
-                      <img class="card-image " src="/project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
+                      <img class="card-image " src="/PHP_Project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
                       <div class="card-body">
                           <h2 class="card-title"><?php echo $row['name'] ?></h2>
                           <h4 class="card-text"><?php echo $row['price'] ?> EGP</h4>
@@ -95,7 +101,7 @@ $Product=new ProductController();
                       if($row['state']=='available'){
                       ?>
                       <div class=" card m-3 align-items-center shadow p-2  ">
-                      <img class="card-image " src="/project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
+                      <img class="card-image " src="/PHP_Project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
                       <div class="card-body">
                           <h2 class="card-title"><?php echo $row['name'] ?></h2>
                           <h4 class="card-text"><?php echo $row['price'] ?> EGP</h4>
@@ -122,9 +128,10 @@ $Product=new ProductController();
               ?>
            </div>
          
-  </div>
+<img class="background-image" src="../../Public/Images/Products/cup.jpg">
+</div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script> -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 </body>
