@@ -10,7 +10,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost/project/Views/Pages/Home.php",
+            "url": "http://localhost/PHP_Project/Views/Pages/Home.php",
             "webRoot": "${workspaceFolder}"
         },
       
