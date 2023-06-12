@@ -43,7 +43,14 @@
                 <a class="nav-link text-white" href="/PHP_Project/Views/Admin/Users/Users.php">Users</a>
             </li>
             <li class="nav-item">
+
                 <a class="nav-link text-white" href="/PHP_Project/Views/Admin/ManualOrders.php">ManulOrder</a>
+
+               
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/project/Views/Admin/Categories/Categories.php">Categories</a>
+
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="/PHP_Project/Views/Admin/Checks.php">Checks</a>
