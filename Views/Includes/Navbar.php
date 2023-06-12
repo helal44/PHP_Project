@@ -9,6 +9,16 @@
     $User->LogoutUser();
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Public/Styles/Style.css">
+    <title>Document</title>
+</head>
+<body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/PHP_Project/Views/Pages/Home.php">Home</a>
@@ -56,12 +66,13 @@
            ?>
             <li class="nav-item">
             <img src="/PHP_Project/Public/Images/Users/<?php echo $_SESSION['image'] ?>" alt="<?php echo $_SESSION['image'] ?>" width="30"/>
+            <img src="/PHP_Project/Public/Images/Users/<?php echo $_SESSION['image'] ?>" alt="<?php echo $_SESSION['image'] ?>" width="30"/>
             </li>
             <li class="nav-item">
                 <p class="nav-link text-primary" ><?php  echo 'Welcome Admin:'. $_SESSION['name'] ?></p>
             </li>
             <li class="nav-item">
-            <a class="nav-link " href="?logout" ><strong>Logout</strong></a>
+            <a class="nav-link text-white " href="?logout" ><strong>Logout</strong></a>
             </li>
             <?php }
             else if(isset($_SESSION['role']) && $_SESSION['role']=='user'){
@@ -71,16 +82,18 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="/PHP_Project/Views/Pages/MyOrders.php" ><?php  echo 'Your Orders :'. $number ?></a>
+                    <a class="nav-link" href="/PHP_Project/Views/Pages/MyOrders.php" ><?php  echo 'Your Orders :'. $number ?></a>
                 </li>
                     <?php } ?>
             <li class="nav-item">
+            <img src="/PHP_Project/Public/Images/Users/<?php echo $_SESSION['image'] ?>" alt="<?php echo $_SESSION['image'] ?>" width="30"/>
             <img src="/PHP_Project/Public/Images/Users/<?php echo $_SESSION['image'] ?>" alt="<?php echo $_SESSION['image'] ?>" width="30"/>
             </li>
             <li class="nav-item">
                 <p class="nav-link"  ><?php  echo 'Welcome :'. $_SESSION['name'] ?></p>
             </li>
             <li class="nav-item">
-            <a class="nav-link " href="?logout" ><strong>Logout</strong></a>
+            <a class="nav-link text-white" href="?logout" ><strong>Logout</strong></a>
             </li>
             
             <?php
@@ -97,7 +110,9 @@
         </ul>
     </div>
 </nav>
-
+    
+</body>
+</html>
 
 
 

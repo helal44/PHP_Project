@@ -331,6 +331,7 @@
 
             try {
                 // session_start();
+                // session_start();
                 $user_id=$_SESSION['id'];
                 $Role=$_SESSION['role'];
                  if($Role=='user'){
