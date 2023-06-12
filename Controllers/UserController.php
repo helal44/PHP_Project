@@ -85,7 +85,7 @@ class UserController extends UserModel {
      protected function UploadUserImage($image){
         try {
          
-           $dir='/opt/lampp/htdocs/project/Public/Images/Users/'.$image;
+           $dir='/PHP_Project/Public/Images/Users/'.$image;
            $resut=move_uploaded_file($_FILES['image']['tmp_name'],$dir);
            if($resut){
           return true;
@@ -104,7 +104,7 @@ class UserController extends UserModel {
 
         protected function DeleteUserImage($image){
             try{
-              $dir='/opt/lampp/htdocs/project/Public/Images/Users/'.$image;
+              $dir='/PHP_Project/Public/Images/Users/'.$image;
                 $result=unlink($dir);
                 if($result){
                 return true;
@@ -134,12 +134,12 @@ class UserController extends UserModel {
 
                     $im=$this->UploadUserImage($image);
 
-                   if($im){
+                  
                     $result=$this->insert($name,$email,$password,$room,$image,$role);
                     if($result){
                        echo "<h4 class='success'>success<h4>";
                     }
-                   }
+                   
 
                 }
                 else{

@@ -28,7 +28,7 @@
     }
 
 
-    private function crateDatabes($con){
+     function crateDatabes($con){
 
         $sql="CREATE DATABASE IF NOT EXISTS $this->dbname";
         $data=  mysqli_query($con,$sql);
@@ -144,8 +144,8 @@
 }
 
         //  $data=new dbModel();
-        // $data->connect();
-        // $data->createUsersTable();
-        // $data->createProductTable();
+        //  $data->connect();
+        //  $data->createUsersTable();
+        //  $data->createProductTable();
         //  $data->createOrderTable();
 ?>

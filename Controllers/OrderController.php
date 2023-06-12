@@ -74,18 +74,20 @@
         public function WatingItems(){
 
             try {
-                session_start();
+
+                // session_start();
+                if (isset($_SESSION['id'])){
                 $user_id=$_SESSION['id'];
                 $result=$this->Wating($user_id);
                 if($result->num_rows>0){
                     $num=$result->num_rows;
                     return $num;
                 }
-            } catch (\Throwable $th) {
+            } }catch (\Throwable $th) {
                 throw $th;
             }
         }
-
+    
 
 
         //  search all the item for the current user --------------------------------->
@@ -113,7 +115,7 @@
 
                 else{
 
-                    session_start();
+                    // session_start();
                     $user_id=$_SESSION['id'];  // for current user to show his ordesr
    
                     if(isset($_POST['SearchByDate'])){
@@ -245,7 +247,7 @@
 
         public function GetTotalPrice(){
             try {
-                session_start();
+                // session_start();
                 $user_id=$_SESSION['id'];
                 $result=$this->totalPrice($user_id);
                 if($result){
@@ -263,7 +265,7 @@
         public function LastUSerDoneOrders(){
 
             try {
-                session_start();
+                // session_start();
                 $user_id=$_SESSION['id'];
                 $Role=$_SESSION['role'];
                  if($Role=='user'){

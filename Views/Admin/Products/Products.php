@@ -50,10 +50,10 @@
                 <th>Actions</th>
               </thead>
               <tbody>
-            <?php while($row=mysqli_fetch_assoc($data)){?>
+            <?php while($row=mysqli_fetch_assoc($data[0])){?>
               <tr>
                 <td><?php echo $row['id'] ?></td>
-                <td> <img src="/project/Public/Images/Products/<?php echo $row['image'] ?>" alt="img" width="50"/></td>
+                <td> <img src="/PHP_Project/Public/Images/Products/<?php echo $row['image'] ?>" alt="img" width="50"/></td>
                 <td><?php echo $row['name'] ?></td>
                 <td >
                   <?php if($row['state']=='available'){
