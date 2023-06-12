@@ -36,37 +36,96 @@
             }
         }
 
-        // Admin Create Order For Users ------------------------------------------>$_COOKIE
 
-          // insert order item ---------------------------------->
+
+
+        // Admin Create Order For Users ------------------------------------------>
+
           public  function  AdminAddItem(){
             try {
-                if(isset($_GET['user_id'])){
+             
                     if(isset($_GET['item'])){
                        
                         $Product_id=$_GET['item'];
-                        $user_id=$_GET['user_id'];
                         $state='waiting';
                         $amount=1;
-                        $note='';
-                        $room=$_GET['room'];
+                        $note='nn';
+                      
                         $date= date('Y-m-d H:i:s'); 
                         $price=$_GET['price'];
-                    
-                        $check=$this->check($user_id,$Product_id);
-                        if($check->num_rows ==0){
-                            $this->insert($user_id,$Product_id,$state,$amount,$note,$room,$date,$price);
+
+                        if(isset($_GET['user_id']) && !empty($_GET['user_id'])){
+
+                            $user_id=$_GET['user_id'];
+                            $room=$_GET['room'];
+
+                            //  echo $Product_id .'/'.$state.'/'.$amount.'/'.$note.'/'.$room.'/'.$date.'/'.$price.'/'.$user_id.'<br>';
+                            $check=$this->check($user_id,$Product_id);
+                            if($check->num_rows ==0){
+                                $this->insert($user_id,$Product_id,$state,$amount,$note,$room,$date,$price);
+                            }
+                            else{
+                                echo 'Order Already Exist';
+                            }
+                            
                         }
-                        
+                        else{
+                            echo 'Select USer First ...';
+                        }
+                       
                     }
-                }elseif(isset($_GET['item'])){
-                    echo 'You Shoud Choose User First';
-                }
+                
 
             } catch (\Throwable $th) {
                 throw $th;
             }
         }
+
+
+
+            // serach order by user ----------------------------------->$_COOKIE
+
+            public function FindUserchOrder(){
+                try {
+                    if(isset($_GET['search'])){
+                        session_start();
+                        $product_id=$_GET['search'];
+                        $user_id=$_SESSION['id'];
+                          
+
+                        $result =$this->FindOrder($product_id,$user_id);
+                            if($result){
+                                $data = mysqli_fetch_assoc($result);
+                                return $data;
+                            }
+                    }
+                } catch (\Throwable $th) {
+                    throw $th;
+                }
+            }
+
+
+
+            // update Order by USer -------------------------------->
+
+            public function UpdateUserOrder(){
+                try {
+                    
+                    if(isset($_POST['editorder'])){
+                        $id=$_POST['id'];
+                        $note=$_POST['note'];
+                        $room=$_POST['room'];
+
+                        $result=$this->UpdateOrder($id,$note,$room);
+                        if($result){
+                            echo 'data updated';
+                            header('Location:MyOrders.php');
+                        }
+                    }
+                } catch (\Throwable $th) {
+                    throw $th;
+                }
+            }
 
 
         // view all  wating item  ------------------------------------------------->
@@ -159,7 +218,7 @@
         }
 
 
-         //Change the Confirmed oprders to Done  Admin -------------------------------------------->$_COOKIE
+         //Change the Confirmed oprders to Done By  Admin -------------------------------------------->$_COOKIE
 
          public function GetOrderDone(){
             try {
@@ -195,6 +254,10 @@
             }
         }
 
+
+
+
+
           // decrease amount of item  by one on click ------------------------------->
 
           public function DecreaseItem(){
@@ -213,6 +276,8 @@
                 throw $th;
             }
         }
+
+
 
 
         // Cancel order and delete it  ----------------------------------------->$_COOKIE

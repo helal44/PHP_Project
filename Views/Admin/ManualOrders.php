@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(!isset($_SESSION['role'])){
+if($_SESSION['role'] !='admin'){
     header('Location:../Pages/Login.php');
   exit();
 }
@@ -11,8 +11,7 @@ require_once(dirname(__FILE__).'/../../Controllers/UserController.php');
 
 $Oredre= new OrderController();
 $Product=new ProductController();
-
-
+$User=new UserController();
 
 
 ?>
@@ -36,22 +35,26 @@ $Product=new ProductController();
             <div class="mx-2 border-bottom-2 border-bottom-color-primary text-center">
               
                   <?php  
-                                    
 
-                    $User=new UserController();
                         $users=$User->ViewUSers();
 
                         foreach($users as $row){
                     
-                         echo '<a href="?user_id='.$row['id'].'&room='.$row['room'].'"> '.$row['name'] .'</a><br>';
+                         echo '<a href="?search='.$row['id'].'&room='.$row['room'].'"> '.$row['name'] .'</a><br>';
                         
                         }
                   ?>
             
             </div>
-            
+            <div class="text-center mt-3">
+              <?php    $Order->AdminAddItem(); ?>
+            </div>
             <div class=" d-flex flex-wrap justify-content-center ">
               <?php
+
+
+                        $currentUser=$User->SearchUser();
+                         
 
                 $products=$Product->SearchProductByName();
 
@@ -67,7 +70,8 @@ $Product=new ProductController();
                     <div class="card-body">
                         <h2 class="card-title"><?php echo $row['name'] ?></h2>
                         <h4 class="card-text"><?php echo $row['price'] ?>$</h4>
-                        <a href="?item=<?php echo $row['id'] ?>&price=<?php echo $row['price']?>" >Add to list</a>
+                        <a href="?item=<?php echo $row['id'] ?>&price=<?php echo $row['price']?>&user_id=<?php   echo $currentUser['id']; ?>&room=<?php  echo $currentUser['room']; ?>"  >Add to list</a>
+              
                     </div>
                     </div>
                   <?php } }
@@ -83,13 +87,13 @@ $Product=new ProductController();
                     <div class="card-body">
                         <h2 class="card-title"><?php echo $row['name'] ?></h2>
                         <h4 class="card-text"><?php echo $row['price'] ?>$</h4>
-                        <a href="?item=<?php echo $row['id'] ?>&price=<?php echo $row['price']?>" >Add to list</a>
+                        <a href="?item=<?php echo $row['id'] ?>&price=<?php echo $row['price']?>&user_id=<?php   echo $currentUser['id']; ?>&room=<?php  echo $currentUser['room']; ?>" >Add to list</a>
                     </div>
                     </div>
                   <?php } }
 
                 }
-                  $Order->AdminAddItem();
+                 
               ?>
               
             </div>

@@ -1,6 +1,6 @@
 <?php 
   session_start();
-  if(!isset($_SESSION['name'])){
+  if($_SESSION['role'] !='admin'){
     header('Location:../../Pages/Login.php');
     exit();
   }
@@ -74,6 +74,17 @@
               </tbody>
           </table>
         </div>
+
+        <div d-flex flex-wrap justify-content-center >
+            <?php
+                for ($i = 1; $i <=$data[1]; $i++) {
+                
+                    echo "<a class='btn btn-primary mx-2' href='?page=$i'>$i</a> ";
+                  
+                }
+              
+              ?>
+           </div>
        
     </div>
   </div>
