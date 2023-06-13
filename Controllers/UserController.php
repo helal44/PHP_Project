@@ -1,5 +1,9 @@
 <?php 
 
+use \PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\Exception;
+
 // require_once('dbController.php');
  require_once(dirname(__FILE__).'/../Models/UserModel.php');
 
@@ -142,11 +146,13 @@ class UserController extends UserModel {
 
                     $im=$this->UploadUserImage($image);
 
+                  
                   //  if($im){
                     $result=$this->insert($name,$email,$password,$room,$image,$role);
                     if($result){
                        echo "<h4 class='success'>success<h4>";
                     }
+                
                   //  }
 
                 }
@@ -316,6 +322,150 @@ class UserController extends UserModel {
             throw $th;
           }
         }
+
+
+
+
+  // Validate Reset Email
+  function ValidateReset($email)
+  {
+    if (empty($email)) {
+      $this->errors['Email'] = 'Email Is Required';
+    } else {
+      if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+        $this->errors['EmailStyle'] = 'Email Not Found Register';
+      }
+    }
+    return $this->errors;
+  }
+
+  //Check If User Exist Or Not
+  function isUserExist()
+  {
+    try {
+      if (isset($_POST['submit'])) {
+        $email = $_POST['email'];
+        $errors = $this->ValidateReset($email);
+        if (empty($errors)) {
+          $result = $this->checkRest($email);
+          if ($result) {
+            $data = mysqli_fetch_assoc($result);
+            // session_start();
+            $_SESSION['info'] = "Verification Code Sent To your Email :)";
+            $_SESSION['email'] = $data['email'];
+            $token = rand(999999, 111111);
+            $_SESSION['token'] = $token;
+            $res = $this->updateToken($data['email'], $token);
+            if ($res) {
+              // $this->sendEmail($email,$data['name'],$token);
+              header('Location:./CodeVerification.php');
+              exit();
+            } else {
+              echo "Failed while sending code!";
+            }
+          }
+        } else {
+          foreach ($errors as $key => $vale) {
+            echo " <br><span class='alert alert-danger mt-5'>" . $key . "  =>  " . $vale . "</span><br>";
+          }
+        }
+      }
+    } catch (Exception $th) {
+      echo $th->getMessage();
+    }
+  }
+
+  //send verification code by mail
+  //   function sendEmail($email,$name,$token){ 
+  //     $mail = new PHPMailer(true); 
+  //     try {
+  //         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                  
+  //         $mail->isSMTP();                                           
+  //         $mail->Host       = 'smtp.gmail.com';                    
+  //         $mail->SMTPAuth   = true;                                  
+  //         $mail->Username   = 'goo.chrom312@gmail.com';                    
+  //         $mail->Password   = 'secret';                              
+  //         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;           
+  //         $mail->Port       = 587;         
+
+  //         //Recipients
+  //         $mail->setFrom('goo.chrom312@gmail.com', $name);
+  //         $mail->addAddress('ahmed.abdelmawla312@gmail.com');     
+  //         // $mail->addAddress('ellen@example.com');              
+  //         // $mail->addReplyTo('info@example.com', 'Information');
+  //         // $mail->addCC('cc@example.com');
+  //         // $mail->addBCC('bcc@example.com');
+
+  //         //Attachments
+  //         // $mail->addAttachment('/var/tmp/file.tar.gz');     
+  //         // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');
+
+  //         //Content
+  //         $mail->isHTML(true);                                 
+  //         $mail->Subject = 'Reset Password Code';
+  //         $mail->Body    = "Your Verification code is : $token";
+  //         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+  //         $mail->send();
+  //         echo 'Message has been sent';
+  //     } catch (Exception $e) {
+  //         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+  //     }
+  // }
+
+  //check if token is matched
+  function checkCode()
+  {
+    try {
+      // session_start();
+      if (isset($_POST['submit'])) {
+        $token = $_POST['code'];
+        $email = $_SESSION['email'];
+        $result = $this->checkRest($email);
+        if ($result) {
+          $data = mysqli_fetch_assoc($result);
+          if ($token === $data['token']) {
+            header('Location:./NewPassword.php');
+          } else {
+            echo " <br><span class='alert alert-danger mt-5'>Incorrect Code !!</span><br>";
+          }
+        }
+      }
+    } catch (Exception $th) {
+      echo $th->getMessage();
+    }
+  }
+
+  //rest password and remove token
+  function restPass()
+  {
+    try {
+      if (isset($_POST['submit'])) {
+        $pass = $_POST['password'];
+        $confirmPassword = $_POST['confirmPassword'];
+        $email = $_SESSION['email'];
+        $passPattern = '/^(?=.*[a-z])(?=.*\d)[a-z\d]{8}$/';
+        if (empty($pass) || empty($confirmPassword)) {
+          echo " <br><span class='alert alert-danger mt-5'>Fill Empty inputs</span><br>";
+        } else if (!preg_match($passPattern, $pass)) {
+          echo " <br><span class='alert alert-danger mt-5'>Invalid password .. must contain 8 of chars and numbers </span><br>";
+        } else if ($confirmPassword != $pass) {
+          echo " <br><span class='alert alert-danger mt-5'>Password and Confirm password not matched</span><br>";
+        } else {
+          $res = $this->restPassword($email, $pass);
+          if ($res) {
+            header('Location:./Login.php');
+          } else {
+            echo " <br><span class='alert alert-danger mt-5'>Failed To Update Password Try Again</span><br>";
+          }
+        }
+      }
+    } catch (Exception $th) {
+      echo $th->getMessage();
+    }
+  }
+
+
 
 }
 ?>
