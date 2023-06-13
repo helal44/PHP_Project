@@ -133,18 +133,15 @@
         public function WatingItems(){
 
             try {
-                // session_start();
+               // session_start();
                 if(isset($_SESSION['id'])){
-                   
-                    $user_id=$_SESSION['id'];
-                    $result=$this->Wating($user_id);
-                    if($result->num_rows>0){
-                        $num=$result->num_rows;
-                        return $num;
-                    }
-
+                $user_id=$_SESSION['id'];
+                $result=$this->Wating($user_id);
+                if($result->num_rows>0){
+                    $num=$result->num_rows;
+                    return $num;
                 }
-               
+                }
             } catch (\Throwable $th) {
                 throw $th;
             }
@@ -177,7 +174,7 @@
 
                 else{
 
-                    // session_start();
+                    //session_start();
                     $user_id=$_SESSION['id'];  // for current user to show his ordesr
    
                     if(isset($_POST['SearchByDate'])){

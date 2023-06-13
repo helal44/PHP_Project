@@ -84,8 +84,10 @@
                 name VARCHAR(50) NOT NULL,
                 state VARCHAR(10) NOT NULL,
                 price INT(10)  NOT NULL,
-                category VARCHAR(10) NOT NULL,
-                image VARCHAR(20) NOT NULL
+                -- category VARCHAR(10) NOT NULL,
+                category_id INT(10),
+                image VARCHAR(20) NOT NULL,
+                foreign key(category_id) references Categories(id) on delete cascade
             )";
 
             $data=$con->query($sql);
@@ -137,15 +139,33 @@
     }
 
 
-  
+    function createCategoriesTable()
+  {
+    try {
+      $con = $this->connect();
+      $sql = "CREATE TABLE Categories (
+              id INT(10)   AUTO_INCREMENT  PRIMARY KEY,
+              name VARCHAR(50)  NOT NULL
+          )";
+      $data = $con->query($sql);
+      if (!$data) {
+        die('<br>Categories Table Not Created ' . $con->error . '<br>');
+      } else {
+        echo 'Categories Table Is Created';
+      }
+    } catch (\Throwable $th) {
+      echo $th->getMessage();
+    }
+  }
 
 
   
 }
 
-        //  $data=new dbModel();
+        // $data=new dbModel();
         // $data->connect();
         // $data->createUsersTable();
+        // $data->createCategoriesTable();
         // $data->createProductTable();
-        //  $data->createOrderTable();
+        // $data->createOrderTable();
 ?>
