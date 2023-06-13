@@ -11,7 +11,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/project/Views/Pages/Home.php">Home</a>
+  <a class="navbar-brand" href="/PHP_Project/Views/Pages/Home.php">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -55,7 +55,7 @@
            if(isset($_SESSION['role']) && $_SESSION['role']=='admin'){
            ?>
             <li class="nav-item">
-            <img src="/project/Public/Images/Users/<?php echo $_SESSION['image'] ?>" alt="<?php echo $_SESSION['image'] ?>" width="30"/>
+            <img src="/PHP_Project/Public/Images/Users/<?php echo $_SESSION['image'] ?>" alt="<?php echo $_SESSION['image'] ?>" width="30"/>
             </li>
             <li class="nav-item">
                 <p class="nav-link text-primary" ><?php  echo 'Welcome Admin:'. $_SESSION['name'] ?></p>

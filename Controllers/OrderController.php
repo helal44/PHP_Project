@@ -88,7 +88,7 @@
             public function FindUserchOrder(){
                 try {
                     if(isset($_GET['search'])){
-                        session_start();
+                        // session_start();
                         $product_id=$_GET['search'];
                         $user_id=$_SESSION['id'];
                           
@@ -133,8 +133,9 @@
         public function WatingItems(){
 
             try {
-                if($_SESSION['id']){
-                    // session_start();
+                // session_start();
+                if(isset($_SESSION['id'])){
+                   
                     $user_id=$_SESSION['id'];
                     $result=$this->Wating($user_id);
                     if($result->num_rows>0){

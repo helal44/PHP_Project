@@ -45,7 +45,7 @@ class ProductController extends ProductModel{
   protected function UploadProductImage($image){
    try {
     
-    $dir='/opt/lampp/htdocs/project/Public/Images/Products/'.$image;
+    $dir='/opt/lampp/htdocs/PHP_Project/Public/Images/Products/'.$image;
       $resut=move_uploaded_file($_FILES['image']['tmp_name'],$dir);
       if($resut){
          return true;
@@ -93,12 +93,12 @@ class ProductController extends ProductModel{
           if(empty($error)){
 
            $im= $this->UploadProductImage($image);  // upload image 
-            if($im){
+            // if($im){
               $result=$this->Insert($name,$state,$price,$category,$image); // insert data in data base
               if($result){
                 header('Location:./Products.php');
               }
-            }
+           // }
           }
 
           else{

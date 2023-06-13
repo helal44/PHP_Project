@@ -34,7 +34,7 @@
                     <h4 class="text-center">All Users</h4>
                 </div>
                 <div class="col-6">
-                <a class="nav-link text-center" href="/project/Views/Pages/Register.php">Add User</a>
+                <a class="nav-link text-center" href="/PHP_Project/Views/Pages/Register.php">Add User</a>
                 </div>
         </div>
         <table class="table table-responsive">
@@ -52,7 +52,7 @@
            <?php while($row=mysqli_fetch_assoc($data)){?>
             <tr>
               <td><?php echo $row['id'] ?></td>
-              <td> <img src="/project/Public/Images/Users/<?php echo $row['image'] ?>" alt="img" width="50"/></td>
+              <td> <img src="/PHP_Project/Public/Images/Users/<?php echo $row['image'] ?>" alt="img" width="50"/></td>
               <td><?php echo $row['name'] ?></td>
               <td><?php echo $row['email'] ?></td> 
               <td><?php echo $row['password'] ?></td>
