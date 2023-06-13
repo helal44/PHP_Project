@@ -68,6 +68,7 @@
                 <a class="nav-link text-white" href="/PHP_Project/Views/Pages/MyOrders.php">MyOrders</a>
                 <a class="nav-link" href="/PHP_Project/Views/Pages/MyOrders.php">MyOrders</a>
              </li>
+                
             <?php }?>
         </ul>
        
@@ -75,7 +76,7 @@
         <ul class="navbar-nav ml-auto">
            <?php 
            //session_start();
-           <?php
+        //    <?php 
             // session_start();
            if(isset($_SESSION['role']) && $_SESSION['role']=='admin'){
            ?>
