@@ -106,7 +106,50 @@ class UserModel extends dbModel{
 
     }
 
-    
+
+
+
+    //Check Email For Reset Password
+    function checkRest($email)
+    {
+        $con = $this->connect();
+        $sql = "SELECT * FROM `users` WHERE email='$email' ";
+        $data = mysqli_query($con, $sql);
+        if (mysqli_num_rows($data) > 0) {
+            return $data;
+        } else {
+            echo '<br><span class="alert alert-danger">This Email Not Found</span>' . mysqli_error($con);
+        }
+    }
+
+    //insert token for validation
+    function updateToken($email, $token)
+    {
+        $con = $this->connect();
+        $sql = "UPDATE `Users` SET `token`='$token' WHERE email='$email'";
+        $data = mysqli_query($con, $sql);
+        if ($data) {
+            return true;
+        } else {
+            echo '<br><span class="alert alert-danger">Failed to send code</span>' . mysqli_error($con);
+        }
+    }
+
+    //update password and token
+    function restPassword($mail, $pass)
+    {
+        $con = $this->connect();
+        $sql = "UPDATE `Users` SET `token`=null,`password`='$pass' WHERE email='$mail'";
+        $data = mysqli_query($con, $sql);
+        if ($data) {
+            return true;
+        } else {
+            echo '<br><span class="alert alert-danger">Failed to update password</span>' . mysqli_error($con);
+        }
+    }
+
+
+
 }
 
 ?>
