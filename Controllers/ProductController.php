@@ -45,11 +45,12 @@ class ProductController extends ProductModel{
   protected function UploadProductImage($image){
    try {
     
-    $dir='Public/Images/Products/';
-     $target_file = $dir.basename($_FILES["image"]["name"]);
-      // $result=move_uploaded_file($_FILES['image']['tmp_name'],$target_file);
-      if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
-        echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+    $dir='/xampp/htdocs/PHP_project/Public/Images/Products/'.$image;
+    
+    $result=move_uploaded_file($_FILES['image']['tmp_name'],$dir);
+      if($result){
+         echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+        // return true;
       }
       else{
       echo 'failed to upload image';
