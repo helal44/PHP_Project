@@ -198,7 +198,7 @@ $data=$Product->ViewProducts();
      <div class="products" id="products">
         <div class="heading">Our <span>Products</span></div>
         <div class="box-container">
-        <!-- <?php while($row=mysqli_fetch_assoc($data[0])){?>
+        <?php while($row=mysqli_fetch_assoc($data[0])){?>
             <div class="box">
                 <div class="icons">
                     <a href="#" class="fas fa-shopping-cart"></a>
@@ -230,50 +230,9 @@ $data=$Product->ViewProducts();
                          <span>$20.99</span>
                         </div>
                 </div>
-            </div> -->
-            <div class="box">
-                <div class="icons">
-                    <a href="#" class="fas fa-shopping-cart"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="../../Public/Images/Products//cat-02.jpg" alt="" >
-                </div>
-                <div class="content">
-                    <h3>Fresh coffee</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                </div>
             </div>
-            <div class="box">
-                <div class="icons">
-                    <a href="#" class="fas fa-shopping-cart"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="../../Public/Images/Products/cat-03.jpg" alt="" >
-                </div>
-                <div class="content">
-                    <h3>Fresh coffee</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                </div>
-            </div>
-            <!-- <?php } ?> -->
+       
+            <?php } ?>
         </div>
       </div>
      </section>
