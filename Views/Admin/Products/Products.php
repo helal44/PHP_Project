@@ -21,25 +21,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <title>Home Page</title>
+  <link rel="stylesheet" href="../../../Public/Styles/product.css">
+
+  <title>products Page</title>
 </head>
-<body>
+<body >
+  
   <div class="container-fluid my-1">
 
   <?php require_once(dirname(__FILE__).'/../../Includes/Navbar.php') ;?>
    
-    <div class="row my-5 mx-2">
-        <div class="row w-100">
+    <div class=" my-5 mx-2 table m-auto">
+        <div class=" table-header">
+               <h4 class="text-center">All Products</h4>
+              <a class="nav-link text-center btn" href="./AddProduct.php">Add Product</a>
+        </div>
+
+        <!-- <div class="row w-100">
                 <div class="col-6">
                     <h4 class="text-center">All Products</h4>
                 </div>
                 <div class="col-6">
                 <a class="nav-link text-center" href="./AddProduct.php">Add Product</a>
                 </div>
-        </div>
-        <div class=" row w-100">
+        </div> -->
+        <div class=" row table-contact">
 
-          <table class="table mx-5 ">
+          <table class="table   ">
               <thead>
                 <th>ID</th>
                 <th>Image</th>
@@ -57,7 +65,7 @@
                 <td><?php echo $row['name'] ?></td>
                 <td >
                   <?php if($row['state']=='available'){
-                    echo '<p class="text-primary">'.$row['state'].'p';
+                    echo '<p class="text-success">'.$row['state'].'p';
                   } else{
                     echo '<p class="text-danger">'.$row['state'].'p';
                   }
@@ -66,8 +74,8 @@
                 <td><?php echo $row['price'] ?></td>
                 <td><?php echo $row['category'] ?></td>
                 <td>
-                <a class="btn btn-danger" href="Products.php?delete=<?php echo $row['id'] ?>&image=<?php echo $row['image'] ?>">Delete</a>
-                      <a class="btn btn-warning my-2" href="EditProduct.php?search=<?php echo $row['id'] ?>&image=<?php echo $row['image'] ?>">Update</a>
+                <a class="bg-danger " href="Products.php?delete=<?php echo $row['id'] ?>&image=<?php echo $row['image'] ?>">Delete</a>
+                <a class="" href="EditProduct.php?search=<?php echo $row['id'] ?>&image=<?php echo $row['image'] ?>">Update</a>
                 </td>
               </tr>
               <?php }?>
@@ -75,16 +83,16 @@
           </table>
         </div>
 
-        <div d-flex flex-wrap justify-content-center >
-            <?php
-                for ($i = 1; $i <=$data[1]; $i++) {
-                
-                    echo "<a class='btn btn-primary mx-2' href='?page=$i'>$i</a> ";
+          <div class="text-center m-auto " >
+              <?php
+                  for ($i = 1; $i <=$data[1]; $i++) {
                   
-                }
-              
-              ?>
-           </div>
+                      echo "<a class='btn btn-dark ' href='?page=$i'>$i</a> ";
+                    
+                  }
+                
+                ?>
+          </div>
        
     </div>
   </div>
