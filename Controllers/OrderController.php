@@ -88,7 +88,7 @@
             public function FindUserchOrder(){
                 try {
                     if(isset($_GET['search'])){
-                        session_start();
+                        // session_start();
                         $product_id=$_GET['search'];
                         $user_id=$_SESSION['id'];
                           
@@ -174,7 +174,11 @@
 
                 else{
 
+<<<<<<< HEAD
                     session_start();
+=======
+                    //session_start();
+>>>>>>> Yasmen
                     $user_id=$_SESSION['id'];  // for current user to show his ordesr
    
                     if(isset($_POST['SearchByDate'])){

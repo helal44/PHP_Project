@@ -1,0 +1,164 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../Images/productPage.jpg") center /cover;
+    
+}
+
+div.table {
+    width: 82vw;
+    height: 90vh;
+    background-color:#fff5 ;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0.4rem 0.8rem #0005;
+    border-radius: 0.8rem;
+    overflow: hidden;
+}
+
+.table-header{
+  width: 100%;
+  height: 10%;
+  background-color: #fff5;
+  padding: 0.8rem 1rem;  
+  display: flex;
+  justify-content: space-around;
+
+}
+.table-header h4{
+    color: #38220f;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.table-header a{
+  
+    background-color: #38220f;
+    padding: 5px 35px;
+    display: inline-block;
+    border: solid 1px #38220f;
+    border-radius: 30px;
+    color: white;
+    text-transform: capitalize;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+    z-index: 2;
+}
+
+.table-header a:hover{
+    color: white;
+    background-color:transparent;
+    border: solid 2px #38220f;
+}
+
+
+.table-contact{
+    width: 95%;
+    max-height: (89%,0.8rem);
+    background-color: #fffb;
+    margin: 1rem auto;
+    border-radius: 0.6rem;
+    overflow: auto;
+
+}
+.table-contact::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.table-contact::-webkit-scrollbar-thumb{
+   border-radius: 0.5rem;
+   background-color: #0004;
+   visibility: hidden;
+}
+
+.table-contact:hover::-webkit-scrollbar-thumb{
+ 
+    visibility: visible;
+ }
+ table{
+    width: 100%;
+ }
+
+
+
+td img{
+    width: 36px;
+    height: 36px;
+    margin-right:0.5rem ;
+    border-radius: 50%;
+    vertical-align: middle;
+
+}
+
+table,th,td{
+    border-collapse:collapse ;
+    padding: 1rem;
+
+}
+
+thead th{
+    position: static;
+    top: 0;
+    left: 0;
+    color: #38220f;
+    background-color: #d5d1defe;
+}
+
+tbody tr:nth-child(even){
+    background-color: #0000000b;
+}
+
+tbody tr:hover{
+    background-color: #fff6;
+}
+
+tbody tr td a{
+    background-color: 	#634832;
+    padding: 5px 35px;
+    display: inline-block;
+    border: solid 1px #fff;
+    border-radius: 30px;
+    color: white;
+    text-transform: capitalize;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+    z-index: 2;
+   
+}
+
+tbody tr td a:hover{
+    background-color: 	#967259;
+    text-decoration: none;
+    padding: 5px 35px;
+    display: inline-block;
+    border: solid 1px #fff;
+    border-radius: 30px;
+    color: white;
+    text-transform: capitalize;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+    z-index: 2;
+   
+}
+.page{
+    
+}

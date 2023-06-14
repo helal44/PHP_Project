@@ -22,7 +22,7 @@
 
 <nav class="navbar navbar1 navbar-expand-lg navbar-light">
 <a href="#" class="logo">
-  <img src="../../Public/Images/Products/logo1.png"  style="height: 80px;width: 120px;">
+  <img src="/PHP_Project/Public/Images/Products/logo1.png"  style="height: 80px;width: 120px;">
 </a>
   <a class="navbar-brand text-white" href="/PHP_Project/Views/Pages/Home.php">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@
                
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/project/Views/Admin/Categories/Categories.php">Categories</a>
+              <a class="nav-link text-white" href="/PHP_Project/Views/Admin/Categories/Categories.php">Categories</a>
 
                 <a class="nav-link" href="/PHP_Project/Views/Admin/ManualOrders.php">ManulOrder</a>
             </li>
@@ -66,7 +66,10 @@
                 
               <li class="nav-item">
                 <a class="nav-link text-white" href="/PHP_Project/Views/Pages/MyOrders.php">MyOrders</a>
+<<<<<<< HEAD
                 <a class="nav-link" href="/PHP_Project/Views/Pages/MyOrders.php">MyOrders</a>
+=======
+>>>>>>> Yasmen
              </li>
                 
             <?php }?>
@@ -76,8 +79,11 @@
         <ul class="navbar-nav ml-auto">
            <?php 
            //session_start();
+<<<<<<< HEAD
         //    <?php 
             // session_start();
+=======
+>>>>>>> Yasmen
            if(isset($_SESSION['role']) && $_SESSION['role']=='admin'){
            ?>
             <li class="nav-item">
