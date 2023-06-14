@@ -194,11 +194,11 @@ $data=$Product->ViewProducts();
     
     </div>
       <!-- product section start --> 
-     <!-- <section>
+     <section>
      <div class="products" id="products">
         <div class="heading">Our <span>Products</span></div>
         <div class="box-container">
-        <?php while($row=mysqli_fetch_assoc($data[0])){?>
+        <!-- <?php while($row=mysqli_fetch_assoc($data[0])){?>
             <div class="box">
                 <div class="icons">
                     <a href="#" class="fas fa-shopping-cart"></a>
@@ -230,8 +230,8 @@ $data=$Product->ViewProducts();
                          <span>$20.99</span>
                         </div>
                 </div>
-            </div>
-            <!-- <div class="box">
+            </div> -->
+            <div class="box">
                 <div class="icons">
                     <a href="#" class="fas fa-shopping-cart"></a>
                     <a href="#" class="fas fa-heart"></a>
@@ -251,8 +251,8 @@ $data=$Product->ViewProducts();
                     </div>
                     <div class="price">$15.99 <span>$20.99</span></div>
                 </div>
-            </div> -->
-            <!-- <div class="box">
+            </div>
+            <div class="box">
                 <div class="icons">
                     <a href="#" class="fas fa-shopping-cart"></a>
                     <a href="#" class="fas fa-heart"></a>
@@ -272,11 +272,11 @@ $data=$Product->ViewProducts();
                     </div>
                     <div class="price">$15.99 <span>$20.99</span></div>
                 </div>
-            </div> -->
-            <?php } ?>
+            </div>
+            <!-- <?php } ?> -->
         </div>
       </div>
-     </section> -->
+     </section>
      <!-- product section end  -->
   
   
