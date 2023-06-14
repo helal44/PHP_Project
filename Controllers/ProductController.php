@@ -45,7 +45,7 @@ class ProductController extends ProductModel{
   protected function UploadProductImage($image){
     try {
      
-     $dir='/xampp1/htdocs/PHP_Project/Public/Images/Products'.$image;
+     $dir='/xampp1/htdocs/PHP_Project/Public/Images/Products/'.$image;
      
      $result=move_uploaded_file($_FILES['image']['tmp_name'],$dir);
        if($result){
@@ -65,7 +65,7 @@ class ProductController extends ProductModel{
 
   protected function DeleteProductImage($image){
     try{
-      $dir='/xampp1/htdocs/PHP_Project/Public/Images/Products'.$image;
+      $dir='/xampp1/htdocs/PHP_Project/Public/Images/Products/'.$image;
 
         $result=unlink($dir);
         if($result){
