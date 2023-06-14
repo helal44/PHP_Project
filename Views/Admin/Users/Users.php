@@ -52,7 +52,7 @@
            <?php while($row=mysqli_fetch_assoc($data)){?>
             <tr>
               <td><?php echo $row['id'] ?></td>
-              <td> <img src="/PHP_Project/Public/Images/Users/<?php echo $row['image'] ?>" alt="img" width="50"/></td>
+              <td> <img src="/PHP_Project/Public/Images/Users/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="50"/></td>
               <td><?php echo $row['name'] ?></td>
               <td><?php echo $row['email'] ?></td> 
               <td><?php echo $row['password'] ?></td>

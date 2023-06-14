@@ -9,6 +9,7 @@ require_once(dirname(__FILE__).'/../../Controllers/ProductController.php');
 require_once(dirname(__FILE__).'/../../Controllers/OrderController.php');
 
 
+
 $order=new OrderController();
 
 $lastOrders=$order->LastUSerDoneOrders();
@@ -27,6 +28,9 @@ $Product=new ProductController();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../Public/Styles/Style.css">
+  <link rel="stylesheet" href="../../Public/Styles/footer.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <title>Home Page</title>
 </head>
 <body>
@@ -129,6 +133,10 @@ $Product=new ProductController();
            </div>
          
 <img class="background-image" src="../../Public/Images/Products/cup.jpg">
+<div class="main">
+  <?php require_once(dirname(__FILE__).'/../Includes/Footer.php'); ?>
+</div>
+
 </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script> -->
