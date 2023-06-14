@@ -133,20 +133,20 @@
         public function WatingItems(){
 
             try {
-               // session_start();
-                if(isset($_SESSION['id'])){
+
+                // session_start();
+                if (isset($_SESSION['id'])){
                 $user_id=$_SESSION['id'];
                 $result=$this->Wating($user_id);
                 if($result->num_rows>0){
                     $num=$result->num_rows;
                     return $num;
                 }
-                }
-            } catch (\Throwable $th) {
+            } }catch (\Throwable $th) {
                 throw $th;
             }
         }
-
+    
 
 
         //  search all the item for the current user --------------------------------->
@@ -172,34 +172,31 @@
                     }
                 }
 
-                else{
+                // else{
 
-<<<<<<< HEAD
-                    session_start();
-=======
-                    //session_start();
->>>>>>> Yasmen
-                    $user_id=$_SESSION['id'];  // for current user to show his ordesr
+
+
+                //     // session_start();
+
+                //     $user_id=$_SESSION['id'];  // for current user to show his ordesr
    
-                    if(isset($_POST['SearchByDate'])){
-                       $from=$_POST['from'];
-                       $to=$_POST['to'];
-                       $result=$this->userSearch($user_id,$from,$to);
-                       if($result){
-                           return $result;
-                       }
-                    }
-                    else{
-                       $result=$this->userSearch($user_id);
-                       if($result){
-                           return $result;
-                       }
-                    }
+                //     if(isset($_POST['SearchByDate'])){
+                //        $from=$_POST['from'];
+                //        $to=$_POST['to'];
+                //        $result=$this->userSearch($user_id,$from,$to);
+                //        if($result){
+                //            return $result;
+                //        }
+                //     }
+                //     else{
+                //        $result=$this->userSearch($user_id);
+                //        if($result){
+                //            return $result;
+                //        }
+                //     }
 
-                }
+                // }
                
-              
-
             } catch (\Throwable $th) {
                 throw $th;
             }
@@ -334,6 +331,7 @@
         public function LastUSerDoneOrders(){
 
             try {
+                // session_start();
                 // session_start();
                 $user_id=$_SESSION['id'];
                 $Role=$_SESSION['role'];

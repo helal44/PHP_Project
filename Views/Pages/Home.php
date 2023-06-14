@@ -10,14 +10,17 @@ require_once(dirname(__FILE__).'/../../Controllers/OrderController.php');
 
 
 
+
 $order=new OrderController();
 
 $lastOrders=$order->LastUSerDoneOrders();
 
 
+
 $Product=new ProductController();
 
-
+$Product->DeleteProduct();
+$data=$Product->ViewProducts();
 ?>
 
 <!DOCTYPE html>
@@ -133,12 +136,116 @@ $Product=new ProductController();
            </div>
          
 <img class="background-image" src="../../Public/Images/Products/cup.jpg">
-<div class="main">
-  <?php require_once(dirname(__FILE__).'/../Includes/Footer.php'); ?>
 </div>
+<br>
 
-</div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- menu section start -->
+    <section class="menu" id="menu">
+            <h1 class="heading">our <span>menu</span></h1>
+            <div class="box-container">
+                <div class="box">
+                    <img src="../../Public/Images/Products/cat-01.jpg" alt="">
+                    <h3>tasty and healthy</h3>
+                    <div class="price">$15.99 <span>20.99</span></div>
+                    <a href="#"class="btn">add to cart</a>
+                </div>
+                <div class="box">
+                    <img src="../../Public/Images/Products/cat-02.jpg" alt="">
+                    <h3>tasty and healthy</h3>
+                    <div class="price">$15.99 <span>20.99</span></div>
+                    <a href="#"class="btn">add to cart</a>
+                </div>
+                <div class="box">
+                    <img src="../../Public/Images/Products/cat-03.jpg" alt="">
+                    <h3>tasty and healthy</h3>
+                    <div class="price">$15.99 <span>20.99</span></div>
+                    <a href="#"class="btn">add to cart</a>
+                </div>
+                <div class="box">
+                    <img src="../../Public/Images/Products/cat-04.jpg" alt="">
+                    <h3>tasty and healthy</h3>
+                    <div class="price">$15.99 <span>20.99</span></div>
+                    <a href="#"class="btn">add to cart</a>
+                </div>
+                <div class="box">
+                    <img src="../../Public/Images/Products/cat-05.jpg" alt="">
+                    <h3>tasty and healthy</h3>
+                    <div class="price">$15.99 <span>20.99</span></div>
+                    <a href="#"class="btn">add to cart</a>
+                </div>
+                <div class="box">
+                    <img src="../../Public/Images/Products/cat-06.jpg" alt="">
+                    <h3>tasty and healthy</h3>
+                    <div class="price">$15.99 <span>20.99</span></div>
+                    <a href="#"class="btn">add to cart</a>
+                </div>
+                <div class="box">
+                    <img src="../../Public/Images/Products/cat-07.jpg" alt="">
+                    <h3>tasty and healthy</h3>
+                    <div class="price">$15.99 <span>20.99</span></div>
+                    <a href="#"class="btn">add to cart</a>
+                </div>
+                <div class="box">
+                    <img src="../../Public/Images/Products/cat-08.jpg" alt="">
+                    <h3>tasty and healthy</h3>
+                    <div class="price">$15.99 <span>20.99</span></div>
+                    <a href="#"class="btn">add to cart</a>
+                </div>
+            </div>
+        </section>
+     <!-- menu section end -->
+     <div>
+    
+    </div>
+      <!-- product section start --> 
+     <section>
+     <div class="products" id="products">
+        <div class="heading">Our <span>Products</span></div>
+        <div class="box-container">
+        <?php while($row=mysqli_fetch_assoc($data[0])){?>
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+             
+                    <img src="../../Public/Images/Products/<?php echo $row['image'] ?>" alt="" >
+                 
+                </div>
+                <div class="content">
+                    <h3>
+                   
+                        <?php echo $row['name'] ?>
+                 
+                    </h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">
+           
+                        <?php echo "$".$row['price'] ?>
+                  
+                         <span>$20.99</span>
+                        </div>
+                </div>
+            </div>
+       
+            <?php } ?>
+        </div>
+      </div>
+     </section>
+     <!-- product section end  -->
+  
+  
+  
+  
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script> -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 

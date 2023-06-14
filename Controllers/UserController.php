@@ -147,19 +147,12 @@ class UserController extends UserModel {
                     $im=$this->UploadUserImage($image);
 
                   
-<<<<<<< HEAD
                   //  if($im){
-=======
->>>>>>> Yasmen
                     $result=$this->insert($name,$email,$password,$room,$image,$role);
                     if($result){
                        echo "<h4 class='success'>success<h4>";
                     }
-                
-<<<<<<< HEAD
-                  //  }
-=======
->>>>>>> Yasmen
+                   
 
                 }
                 else{
