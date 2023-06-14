@@ -56,7 +56,8 @@
                 password VARCHAR(10) NOT NULL,
                 room INT(5) NOT NULL ,
                 image VARCHAR(20) NOT NULL,
-                role VARCHAR(10) NOT NULL
+                role VARCHAR(10) NOT NULL,
+                token INT(6)
             )";
 
             $data=$con->query($sql);
