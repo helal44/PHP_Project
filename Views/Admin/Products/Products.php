@@ -47,7 +47,7 @@
         </div> -->
         <div class=" row table-contact">
 
-          <table class="table   ">
+          <table class="table">
               <thead>
                 <th>ID</th>
                 <th>Image</th>

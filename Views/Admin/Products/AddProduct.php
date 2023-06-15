@@ -27,8 +27,6 @@ $Product=new ProductController();
   <div class="container-fluid my-1">
 
   <?php require_once(dirname(__FILE__).'/../../Includes/Navbar.php') ?>
-
-   
     <div class="row my-5 mx-5  ">
             <form action="" class="w-100" method="post" enctype="multipart/form-data">
                 <h4>Add Product</h4>
