@@ -126,9 +126,8 @@ body{
   }
   .products .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap:1
-    rem;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap:1rem;
 }
 .products .box-container .box{
     text-align: center;
@@ -198,4 +197,10 @@ body{
 }
 #collapse-icon{
   background-color: #fff;
+}
+.body{
+  min-height: 100vh;
+  background: url("../Images/Products/login.jpeg") center /cover !important ;
+  color: #fff;
+ 
 }

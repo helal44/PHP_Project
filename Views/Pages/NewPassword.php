@@ -8,10 +8,10 @@ $user = new UserController();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../../Public/styles/style.css">
   <title>New Password</title>
 </head>
-<body>
+<body class="body">
   <div class="container-fluid my-1">
     <?php require_once dirname(__FILE__) . '/../Includes/Navbar.php'; ?>
       </div>

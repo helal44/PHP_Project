@@ -20,6 +20,7 @@ $Order->GetOrderDone();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../Public/Styles/currentModel.css">
   <title>CurrentORders</title>
 </head>
 <body>
@@ -27,14 +28,14 @@ $Order->GetOrderDone();
 <?php require_once(dirname(__FILE__).'/../Includes/Navbar.php') ;?>
 </div>
     <div class="container">
-        <div class="row my-5 mx-2">
-            <div class="row w-100">
+        <div class="">
+            <div class=" title">
 
-        <h4 class="text-primary mx-5 my-3">All Confirmed Orders</h4>
-        
-        <table class=" table table-responsive  ">
+        <h4 class="">All Confirmed Orders</h4>
+        <div class=" row w-100 table-contact">
+        <table class=" table mx-5  ">
 
-            <thead>
+            <thead class=" mx-5">
               
                 <th>Product</th>
                 <th>Image</th>
@@ -78,6 +79,7 @@ $Order->GetOrderDone();
       
        
     </div>       
+  </div>
   </div>
                         </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

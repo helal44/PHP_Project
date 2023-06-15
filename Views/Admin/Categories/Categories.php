@@ -57,7 +57,7 @@ $data = $category->ViewCategories();
                                 <td><?php echo $row['id'] ?></td>
                                 <td><?php echo $row['name'] ?></td>
                                 <td  class="text-center">
-                                    <a class="btn btn-danger" href="Categories.php?delete=<?php echo $row['id'] ?>">X</a>
+                                    <a class="btn btn-danger my-0" href="Categories.php?delete=<?php echo $row['id'] ?>">X</a>
                                 </td>
                             </tr>
                         <?php } ?>

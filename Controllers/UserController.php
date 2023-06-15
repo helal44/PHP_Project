@@ -95,7 +95,7 @@ class UserController extends UserModel {
      protected function UploadUserImage($image){
         try {
          
-           $dir='/xampp1/htdocs/PHP_Project/Public/Images/Users/'.$image;
+           $dir='/xampp/htdocs/PHP_Project/Public/Images/Users/'.$image;
            $resut=move_uploaded_file($_FILES['image']['tmp_name'],$dir);
            if($resut){
           return true;
@@ -341,6 +341,7 @@ class UserController extends UserModel {
   //Check If User Exist Or Not
   function isUserExist()
   {
+    session_start();
     try {
       if (isset($_POST['submit'])) {
         $email = $_POST['email'];
@@ -349,7 +350,7 @@ class UserController extends UserModel {
           $result = $this->checkRest($email);
           if ($result) {
             $data = mysqli_fetch_assoc($result);
-            // session_start();
+           
             $_SESSION['info'] = "Verification Code Sent To your Email :)";
             $_SESSION['email'] = $data['email'];
             $token = rand(999999, 111111);
@@ -416,7 +417,7 @@ class UserController extends UserModel {
   function checkCode()
   {
     try {
-      // session_start();
+       session_start();
       if (isset($_POST['submit'])) {
         $token = $_POST['code'];
         $email = $_SESSION['email'];
@@ -453,7 +454,7 @@ class UserController extends UserModel {
         } else {
           $res = $this->restPassword($email, $pass);
           if ($res) {
-            header('Location:./Login.php');
+            // header('Location:./Login.php');
           } else {
             echo " <br><span class='alert alert-danger mt-5'>Failed To Update Password Try Again</span><br>";
           }

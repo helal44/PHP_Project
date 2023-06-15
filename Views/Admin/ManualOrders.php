@@ -69,7 +69,7 @@ $User=new UserController();
                     if($row['state']=='available'){
                     ?>
                     <div class=" card m-3 align-items-center shadow p-2  ">
-                    <img class="card-image" src="../../Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
+                    <img class="card-image" src="/PHP_Project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
                     <div class="card-body">
                         <h2 class="card-title"><?php echo $row['name'] ?></h2>
                         <h4 class="card-text"><?php echo $row['price'] ?>$</h4>
@@ -86,7 +86,7 @@ $User=new UserController();
                     if($row['state']=='available'){
                     ?>
                     <div class=" card m-3 align-items-center shadow p-2  ">
-                    <img class="card-image " src="/project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
+                    <img class="card-image " src="/PHP_Project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
                     <div class="card-body">
                         <h2 class="card-title"><?php echo $row['name'] ?></h2>
                         <h4 class="card-text"><?php echo $row['price'] ?>$</h4>
