@@ -8,19 +8,22 @@ require_once(dirname(__FILE__).'/../../Controllers/UserController.php');
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../../Public/Styles/Style.css">
   <title>Login Form</title>
 </head>
 <body>
   <div class="container-fluid my-1">
   <?php require_once(dirname(__FILE__).'/../Includes/Navbar.php') ;?>
-   <div class="row my-4 ">
+  </div>
+    <div class="container">
+        <div class="row my-5 mx-2">
+  
    <div class="col-2">
 
    </div>
    <div class="col-8">
    <form method="post" class="form-group  shadow my-2 mx-3 p-4">
-    <h2 class="form-group text-center">Login Form</h2>
+    <h2 class="form-group text-center text-white">Login Form</h2>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
@@ -30,7 +33,7 @@ require_once(dirname(__FILE__).'/../../Controllers/UserController.php');
         <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
       </div>
       <div class="link forget-pass text-left m-1"><a href="ForgotPassword.php">Forgot Password?</a></div>
-      <button type="submit" class="btn btn-primary mt-2" name="submit">Login</button>
+      <button type="submit" class="btn mt-2" name="submit">Login</button>
 
       <a href="./Register.php" class="nav-link">Register</a>
 
@@ -38,7 +41,9 @@ require_once(dirname(__FILE__).'/../../Controllers/UserController.php');
     </form>
    </div>
    </div>
+   <img class="background-image" src="../../Public/Images/Products/login.jpeg">
   </div>
+ 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

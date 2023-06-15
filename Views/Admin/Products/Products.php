@@ -21,20 +21,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../Public/Styles/Style.css">
   <link rel="stylesheet" href="../../../Public/Styles/product.css">
-
+ 
   <title>products Page</title>
 </head>
 <body >
   
-  <div class="container-fluid my-1">
 
-  <?php require_once(dirname(__FILE__).'/../../Includes/Navbar.php') ;?>
-   
-    <div class=" my-5 mx-2 table m-auto">
+<div class="container-fluid my-1">
+  <?php require_once dirname(__FILE__) . '/../../Includes/Navbar.php' ?>
+</div>
+
+<div class="container">
+    <div class="row my-5 mx-2">
+            <div class="row w-100">
+
+    <div class="  mx-2 table">
         <div class=" table-header">
-               <h4 class="text-center">All Products</h4>
-              <a class="nav-link text-center btn" href="./AddProduct.php">Add Product</a>
+                <div class="col text-center">
+            <h4>All Products</h4>
+          </div>
+          <div class="col text-center">
+            <a class="nav-link btn" href="./AddProduct.php">Add Product</a>
+          </div>
         </div>
 
         <!-- <div class="row w-100">
@@ -47,7 +57,7 @@
         </div> -->
         <div class=" row table-contact">
 
-          <table class="table   ">
+          <table class="table mx-5 ">
               <thead>
                 <th>ID</th>
                 <th>Image</th>
@@ -83,7 +93,7 @@
           </table>
         </div>
 
-          <div class="text-center m-auto " >
+          <div class="text-center m-auto" >
               <?php
                   for ($i = 1; $i <=$data[1]; $i++) {
                   
@@ -93,9 +103,10 @@
                 
                 ?>
           </div>
-       
     </div>
-  </div>
+    </div>
+</div>
+</div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
