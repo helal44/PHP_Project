@@ -18,9 +18,9 @@
     <link rel="stylesheet" href="../../Public/Styles/Style.css">
     <title>Document</title>
 </head>
-<body>
+<body> 
 
-<nav class="navbar navbar1 navbar-expand-lg navbar-light">
+<nav class="navbar navbar1 navbar-expand-lg navbar-light bg-dark">
 <a href="#" class="logo">
   <img src="../../Public/Images/Products/logo1.png"  style="height: 80px;width: 120px;">
 </a>
