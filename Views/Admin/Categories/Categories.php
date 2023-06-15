@@ -9,7 +9,15 @@ require_once dirname(__FILE__).'/../../../Controllers/CategoryController.php';
 
 $category = new CategoryController();
 $category->DeleteCategory();
+
+// Retrieve categories data
 $data = $category->ViewCategories();
+
+// Check if data retrieval was successful
+// if ($data === null) {
+//     echo "Error retrieving categories data.";
+//     exit();
+// }
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +26,8 @@ $data = $category->ViewCategories();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../Public/Styles/Style.css">
+    <link rel="stylesheet" href="../../../Public/Styles/categories.css">
     <title>Categories</title>
 </head>
 <body>
@@ -28,15 +38,15 @@ $data = $category->ViewCategories();
         <div class="row my-5 mx-2">
             <div class="row w-100">
                 <div class="col-9">
-                    <h4 class="ml-5">All Categories</h4>
+                    <h4 class="ml-5 text-white">All Categories</h4>
                 </div>
                 <div class="col-3">
-                    <a class="btn btn-info nav-link text-center mx-4 mb-1" href="./AddCategory.php">Add Category</a>
+                    <a class="btn nav-link text-center mx-4 mb-1" style="background-color: #967459; color:white" href="./AddCategory.php">Add Category</a>
                 </div>
             </div>
-            <div class=" row w-100">
+            <div class=" row w-100 table-contact">
                 <table class="table mx-5 ">
-                    <thead>
+                    <thead >
                         <th>ID</th>
                         <th>Name</th>
                         <th class="text-center">Action</th>
