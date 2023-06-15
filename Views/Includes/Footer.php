@@ -1,5 +1,13 @@
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="../../Public/Styles/footer.css">
+    <title>Footer</title>
+</head>
+<body> 
 <div class="top-footer">
     <h2><i class="bx bx-envelope"></i>Sign Up For Newslatter</h2>
     <div class="input-field">
@@ -10,7 +18,7 @@
 
 <footer>
     <div class="overlay"></div>
-    <div class="footer-content">
+    <div class="footer-content text-center">
         <div class="img-box">
             <!-- <img src="img/footer-background.jpg" alt=""> -->
                 <h1>BOOK SHOP</h1>
@@ -69,3 +77,6 @@
         </div>
     </div>
 </footer>
+  
+</body>
+</html>
