@@ -250,3 +250,255 @@ footer .bottom-footer {
     /* padding-bottom: 0.1rem; */
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --box-shadow:0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+html{
+    font-size: 16px;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+    font-family: sans-serif;
+    --ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100% ;
+}
+
+
+
+/* body{
+    background-image: url('img/background.jpg');
+} */
+
+.main{
+    width: 85vw;
+    background: white;
+    box-shadow: 0 2px 6 px 0 rgba	(150,114,89,.15);
+    margin: 1rem auto;
+    margin-top: 10rem;
+    padding: 2%;
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+.title{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin: 1rem 0;
+    line-height: 2;
+}
+.title p{
+    text-transform: capitalize;
+}
+
+ul{
+   list-style: none; 
+}
+
+sup{
+    position: absolute;
+    top: 15%;
+    background:#000 ;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 15px;
+    text-align: center;
+    padding: 0.1rem;
+
+}
+
+.btn{
+    line-height: 2;
+    background-color: 	#38220f;
+    padding: 5px 35px;
+    display: inline-block;
+    border: solid 1px #38220f;
+    border-radius: 30px;
+    color:white;
+    text-transform: capitalize;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+    z-index: 2;
+
+}
+
+.btn::before{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: #967259;
+    height: 100%;
+    width: 0;
+    z-index: -1;
+    transition: width 0.3s ease;
+
+}
+.btn:hover::before{
+    width: 100%;
+}
+
+
+
+label{
+    text-transform: capitalize;
+}
+
+input,textarea{
+    background: white;
+    border:1px solid #38220f;
+    border-radius: 3px;
+    outline:none;
+    padding: 0.7rem;
+    box-shadow: #b7967f;
+    margin-right: 7px;
+
+
+}
+
+
+/*---------- home slider-------- */
+
+
+
+
+
+
+/* --------footer-------- */
+.top-footer{
+    width: 100%;
+    background: #967259;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* text-align: center; */
+    align-items: center;
+    color: white;
+}
+
+.top-footer h2 i{
+    margin-right: 0.5rem;
+}
+
+.top-footer input{
+    width: 40vw;
+}
+footer{
+    background-image: url("../Images/footer-background.jpg");
+    width: 100%;
+    min-height: 73vh;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+footer .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0 ;
+    bottom: 0;
+    background: #000;
+    opacity: 0.5;
+
+}
+
+.footer-content{
+    position: absolute;
+    top: 10% ;
+}
+
+.footer-content .img-box{
+   text-align: center;
+   color: #38220f;
+
+}
+
+footer .inner-footer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(18rem,1fr));
+    align-items: center;
+    /* text-align: center; */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 3rem 1rem;
+    color: white;
+}
+footer .inner-footer .footercard h3{
+  margin: 10px 0;
+  color: #967259;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+footer .inner-footer .footercard{
+    margin: 0.5rem;
+}
+
+footer ,.inner-footer .footercard li{
+   cursor: pointer;
+   line-height:1.5rem;
+   text-transform: capitalize;
+   font-size: 16px;
+
+}
+
+footer ,.inner-footer .footercard li:hover{
+   color: #38220f;
+ 
+ }
+
+footer .inner-footer .footercard:nth-child(1),
+
+footer .inner-footer .footercard p{
+    margin-top: 1rem;
+}
+footer .inner-footer .footercard p{
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+
+footer .inner-footer .footercard .social-links i{
+  width: 40px;
+  height: 40px;
+  /* line-height: 25px; */
+  border-radius:50%;
+  background: white;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  color: #5d5d5d;
+  cursor: pointer;
+  margin: 3px;
+  padding: 0.6rem;
+  font-size: 1.3rem;
+
+
+}
+footer .bottom-footer {
+    text-transform: capitalize;
+    text-align: center;
+    padding-top: 3rem ;
+    color: white;
+    /* padding-bottom: 0.1rem; */
+}
+
