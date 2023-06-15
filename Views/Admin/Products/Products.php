@@ -57,7 +57,9 @@
         </div> -->
         <div class=" row table-contact">
 
-          <table class="table mx-5 ">
+
+          <table class="table">
+
               <thead>
                 <th>ID</th>
                 <th>Image</th>

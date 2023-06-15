@@ -21,7 +21,7 @@
     <div class="footer-content text-center">
         <div class="img-box">
             <!-- <img src="img/footer-background.jpg" alt=""> -->
-                <h1>BOOK SHOP</h1>
+                <h1>COFFEE SHOP</h1>
         </div>
         <div class="inner-footer">
             <div class="footercard">
