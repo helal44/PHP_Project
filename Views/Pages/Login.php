@@ -8,12 +8,15 @@ require_once(dirname(__FILE__).'/../../Controllers/UserController.php');
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
   <!-- <link rel="stylesheet" href="../styles/style.css"> -->
   <link rel="stylesheet" href="../../Public/Styles/login.css">
+
   <title>Login Form</title>
 </head>
 <body>
   <div class="container-fluid my-1">
+
        <?php require_once(dirname(__FILE__).'/../Includes/Navbar.php') ;?>
        <!-- <div class="row my-4 ">
            <div class="col-2">
@@ -35,14 +38,18 @@ require_once(dirname(__FILE__).'/../../Controllers/UserController.php');
 
                 <a href="./Register.php" class="nav-link">Register</a>
 
+
                 <?php $user->CheckUserExist(); ?>
            </form>
+
 
         </div>
    
    <!-- </div>
    </div> -->
+
   </div>
+ 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
