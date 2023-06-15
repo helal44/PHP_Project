@@ -78,13 +78,13 @@ body{
   
   .menu .box-container{
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
-      gap:2.5rem;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap:1rem;
   }
   
 
   .menu .box-container .box{
-      padding: 5rem;
+      padding: 2rem;
       text-align: center;
       border: var(--border);
   }
@@ -126,13 +126,14 @@ body{
   }
   .products .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
-    gap:2.5rem;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap:1
+    rem;
 }
 .products .box-container .box{
     text-align: center;
     border: var(--border);
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .products .box-container .box .icons a{
@@ -147,11 +148,11 @@ body{
   background-color: var(--main-color);
 }
 .products .box-container .box .image{
-  padding: 2.5rem 0;
+  padding: 1.5rem 0;
 }
 .products .box-container .box .image img{
-  height: 25rem;
-  width: 18rem;
+  height: 18rem;
+  width: 14rem;
 }
 .products .box-container .box .content h3{
   color: #fff;

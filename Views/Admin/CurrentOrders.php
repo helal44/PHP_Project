@@ -23,10 +23,13 @@ $Order->GetOrderDone();
   <title>CurrentORders</title>
 </head>
 <body>
+<div class="container-fluid my-1">
 <?php require_once(dirname(__FILE__).'/../Includes/Navbar.php') ;?>
-  <div class="container my-4">
-         
-    <div class=" row w-100 my-4">
+</div>
+    <div class="container">
+        <div class="row my-5 mx-2">
+            <div class="row w-100">
+
         <h4 class="text-primary mx-5 my-3">All Confirmed Orders</h4>
         
         <table class=" table table-responsive  ">
@@ -76,6 +79,7 @@ $Order->GetOrderDone();
        
     </div>       
   </div>
+                        </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>

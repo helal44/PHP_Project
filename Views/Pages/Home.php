@@ -78,7 +78,7 @@ $data=$Product->ViewProducts();
              
                   <!-- <hr> -->
                
-            <div class=" d-flex flex-wrap justify-content-center ">
+            <!-- <div class=" d-flex flex-wrap justify-content-center ">
               <?php
               
                $products=$Product->SearchProductByName();
@@ -120,7 +120,7 @@ $data=$Product->ViewProducts();
 
               ?>
               
-            </div>
+            </div> -->
 
 <img class="background-image" src="../../Public/Images/Products/cup.jpg">
 </div>

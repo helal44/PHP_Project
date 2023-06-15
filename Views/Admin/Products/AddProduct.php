@@ -31,7 +31,7 @@ $Product=new ProductController();
    
     <div class="row my-5 mx-5  ">
             <form action="" class="w-100" method="post" enctype="multipart/form-data">
-                <h4>Add Product</h4>
+                <h4 >Add Product</h4>
             <div class="form-group">
                 <label for="product_name">Product Name:</label>
                 <input type="text" class="form-control" id="name" name="name" >

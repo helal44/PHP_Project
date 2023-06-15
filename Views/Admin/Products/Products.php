@@ -43,7 +43,7 @@
             <h4>All Products</h4>
           </div>
           <div class="col text-center">
-            <a class="nav-link btn" href="./AddProduct.php">Add Product</a>
+            <a class="nav-link " href="./AddProduct.php">Add Product</a>
           </div>
         </div>
 

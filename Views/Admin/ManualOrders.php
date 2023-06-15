@@ -23,6 +23,7 @@ $User=new UserController();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../Public/Styles/manualOrder.css">
   <title>Home Page</title>
 </head>
 <body>
@@ -30,10 +31,12 @@ $User=new UserController();
 
   <?php require_once(dirname(__FILE__).'/../Includes/Navbar.php') ;?>
 
-               <?php require_once(dirname(__FILE__).'/../Includes/SearchBar.php') ;?>
-   
-            <div class="mx-2 border-bottom-2 border-bottom-color-primary text-center">
-              
+  <!-- <?php require_once(dirname(__FILE__).'/../Includes/SearchBar.php') ;?> -->
+  </div>
+    <div class="container ">
+        <div class="row my-5 mx-2">
+           
+            <div class="mx-2  user text-center">
                   <?php  
 
                         $users=$User->ViewUSers();
@@ -49,11 +52,11 @@ $User=new UserController();
             <div class="text-center mt-3">
               <?php    $Order->AdminAddItem(); ?>
             </div>
-            <div class=" d-flex flex-wrap justify-content-center ">
+            <div class=" d-flex ">
               <?php
 
 
-                        $currentUser=$User->SearchUser();
+                $currentUser=$User->SearchUser();
                          
 
                 $products=$Product->SearchProductByName();
@@ -66,7 +69,7 @@ $User=new UserController();
                     if($row['state']=='available'){
                     ?>
                     <div class=" card m-3 align-items-center shadow p-2  ">
-                    <img class="card-image " src="/project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
+                    <img class="card-image" src="../../Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
                     <div class="card-body">
                         <h2 class="card-title"><?php echo $row['name'] ?></h2>
                         <h4 class="card-text"><?php echo $row['price'] ?>$</h4>
@@ -98,18 +101,20 @@ $User=new UserController();
               
             </div>
 
-            <div d-flex flex-wrap justify-content-center >
+            <div class=" pag d-flex flex-wrap justify-content-center mt-3 mb-3" >
             <?php
                 for ($i = 1; $i <=$ProductData[1]; $i++) {
                 
-                    echo "<a class='btn btn-primary mx-2' href='?page=$i'>$i</a> ";
+                    echo "<a class='btn' href='?page=$i'>$i</a> ";
                   
                 }
               
               ?>
            </div>
          
-  </div>
+        </div>
+    </div>
+    <!-- </div> -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>

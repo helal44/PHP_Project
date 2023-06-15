@@ -1,0 +1,49 @@
+body{
+    min-height: 100vh;
+    background: url("../Images/productPage.jpg") center /cover !important ;
+   
+}
+.row{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    text-align: center;
+   
+}
+
+.pag .btn ,
+.card-body a {
+    background-color: #38220f;
+    padding: 5px 35px;
+    display: inline-block;
+    border: solid 1px #38220f;
+    border-radius: 30px;
+    color: white;
+    text-transform: capitalize;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+    z-index: 2;
+}
+.card-body a:hover,
+.pag .btn:hover {
+  
+    text-decoration: none;
+    color: #000;
+    background-color:#B48B6D;
+}
+.user a{
+    color: #38220f;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+
+} 
