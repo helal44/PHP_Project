@@ -30,9 +30,12 @@ $data=$Product->ViewProducts();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../Public/Styles/Style.css">
   <link rel="stylesheet" href="../../Public/Styles/footer.css">
-
+  <link rel="stylesheet" href="../../Public/Styles/Style.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <title>Home Page</title>
 </head>
@@ -41,12 +44,7 @@ $data=$Product->ViewProducts();
 
   <div class="container-fluid my-1">
 
-  <?php require_once(dirname(__FILE__).'/../Includes/Navbar.php') ;
-   require_once(dirname(__FILE__).'/../Includes/SearchBar.php') ;?>
-
-            <?php
-            //  require_once(dirname(__FILE__).'/../Includes/SearchBar.php') ;
-             ?>
+  <?php require_once(dirname(__FILE__).'/../Includes/Navbar.php') ; ?>
 
             <?php if($lastOrders ) {?>
 
@@ -124,20 +122,22 @@ $data=$Product->ViewProducts();
               
             </div>
 
-           <div d-flex flex-wrap justify-content-center >
-            <?php
-                for ($i = 1; $i <=$ProductData[1]; $i++) {
-                
-                    echo "<a class='btn btn-primary mx-2' href='?page=$i'>$i</a> ";
-                  
-                }
-              
-              ?>
-           </div>
-         
 <img class="background-image" src="../../Public/Images/Products/cup.jpg">
 </div>
 <br>
+<!------------------------------------------ header ---------------------------------------->
+<section id="sec1">
+  <div class="div1">
+    <!-- <h1 class="text-white text-center">Coffee Shop</h1> -->
+<p class="home-para text-center">
+Awaken Your Senses with the Finest Coffee Selections Imaginable
+                </p>
+                <div class="text-center">
+<a href="#menu" class="btn font-weight-bold">View Menu</a>
+                </div>
+                </div>
+</section>
+
 
     <!-- menu section start -->
     <section class="menu" id="menu">
@@ -242,11 +242,24 @@ $data=$Product->ViewProducts();
      </section>
      <!-- product section end  -->
   
-  
+     <div class="d-flex flex-wrap justify-content-center mt-3 mb-3" >
+            <?php
+                for ($i = 1; $i <=$ProductData[1]; $i++) {
+                
+                    echo "<a class='btn' href='?page=$i'>$i</a> ";
+                  
+                }
+              
+              ?>
+             
+                <?php require_once(dirname(__FILE__).'/../Includes/Footer.php') ; ?>
+            
+           </div>
+         
   
   
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 </body>
