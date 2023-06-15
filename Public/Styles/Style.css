@@ -79,7 +79,8 @@ body{
   .menu .box-container{
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
-      gap:2.5rem;
+      gap:1.5rem;
+
   }
   
 
