@@ -45,10 +45,12 @@ class ProductController extends ProductModel{
   protected function UploadProductImage($image){
    try {
     
-    $dir='/opt/lampp/htdocs/project/Public/Images/Products/'.$image;
-      $resut=move_uploaded_file($_FILES['image']['tmp_name'],$dir);
-      if($resut){
-         return true;
+    $dir='/xampp/htdocs/PHP_project/Public/Images/Products/'.$image;
+    
+    $result=move_uploaded_file($_FILES['image']['tmp_name'],$dir);
+      if($result){
+         echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+        // return true;
       }
       else{
       echo 'failed to upload image';
@@ -63,7 +65,7 @@ class ProductController extends ProductModel{
 
   protected function DeleteProductImage($image){
     try{
-      $dir='/opt/lampp/htdocs/project/Public/Images/Products/'.$image;
+      $dir='/xampp1/htdocs/PHP_Project/Public/Images/Products'.$image;
 
         $result=unlink($dir);
         if($result){
@@ -93,12 +95,12 @@ class ProductController extends ProductModel{
           if(empty($error)){
 
            $im= $this->UploadProductImage($image);  // upload image 
-            if($im){
+            // if($im){
               $result=$this->Insert($name,$state,$price,$category,$image); // insert data in data base
               if($result){
                 header('Location:./Products.php');
               }
-            }
+           // }
           }
 
           else{

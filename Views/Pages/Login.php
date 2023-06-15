@@ -29,7 +29,8 @@ require_once(dirname(__FILE__).'/../../Controllers/UserController.php');
         <label for="password">Password</label>
         <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
       </div>
-      <button type="submit" class="btn btn-primary" name="submit">Login</button>
+      <div class="link forget-pass text-left m-1"><a href="ForgotPassword.php">Forgot Password?</a></div>
+      <button type="submit" class="btn btn-primary mt-2" name="submit">Login</button>
 
       <a href="./Register.php" class="nav-link">Register</a>
 
