@@ -14,6 +14,8 @@ $Category = new CategoryController();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../Public/Styles/Style.css">
+    <link rel="stylesheet" href="../../../Public/Styles/categories.css">
     <title>Add Category</title>
 </head>
 <body>
@@ -23,12 +25,12 @@ $Category = new CategoryController();
     <div class="container">
         <div class="row my-5 mx-5  ">
             <form action="" class="w-100" method="post" enctype="multipart/form-data">
-                <h4>Add Category</h4>
+                <h4 class="text-white">Add Category</h4>
                 <div class="form-group mt-5">
-                    <label for="name">Category Name</label>
+                    <label for="name"class="text-white">Category Name</label>
                     <input type="text" class="form-control" id="name" name="name">
                 </div>
-                <button type="submit" class="btn btn-primary my-2" name="addCategory">Add</button> <br>
+                <button type="submit" class="btn my-2" name="addCategory"style="background-color: #967459; color:white">Add</button> <br>
                 <?php
                 $Category->insertCategory();
                 foreach ($Category->errors as $key => $err) { ?>

@@ -43,6 +43,7 @@ class ProductController extends ProductModel{
   //  upload image ------------------------------------------>
 
   protected function UploadProductImage($image){
+
     try {
      
      $dir='/xampp1/htdocs/PHP_Project/Public/Images/Products/'.$image;
@@ -60,6 +61,7 @@ class ProductController extends ProductModel{
      echo $th->getMessage();
    }
    }
+
 
   // delete image   ------------------------------------------>
 

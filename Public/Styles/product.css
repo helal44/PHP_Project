@@ -1,14 +1,18 @@
 body{
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
     background: url("../Images/coffee.jpg") center /cover;
+
     
 }
 
 div.table {
+
     width: 82vw;
+
     height: 90vh;
     background-color:#fff5 ;
     backdrop-filter: blur(3px);
@@ -59,8 +63,10 @@ div.table {
 
 
 .table-contact{
+
     width: 95%;
     max-height: (89%,0.8rem);
+
     background-color: #fffb;
     margin: 1rem auto;
     border-radius: 0.6rem;
@@ -82,9 +88,11 @@ div.table {
  
     visibility: visible;
  }
+
  table{
     width: 100%;
  }
+
 
 
 

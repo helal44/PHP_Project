@@ -28,7 +28,7 @@
     }
 
 
-    private function crateDatabes($con){
+     function crateDatabes($con){
 
         $sql="CREATE DATABASE IF NOT EXISTS $this->dbname";
         $data=  mysqli_query($con,$sql);
@@ -56,7 +56,8 @@
                 password VARCHAR(10) NOT NULL,
                 room INT(5) NOT NULL ,
                 image VARCHAR(20) NOT NULL,
-                role VARCHAR(10) NOT NULL
+                role VARCHAR(10) NOT NULL,
+                token INT(6)
             )";
 
             $data=$con->query($sql);
@@ -139,33 +140,14 @@
     }
 
 
-    function createCategoriesTable()
-  {
-    try {
-      $con = $this->connect();
-      $sql = "CREATE TABLE Categories (
-              id INT(10)   AUTO_INCREMENT  PRIMARY KEY,
-              name VARCHAR(50)  NOT NULL
-          )";
-      $data = $con->query($sql);
-      if (!$data) {
-        die('<br>Categories Table Not Created ' . $con->error . '<br>');
-      } else {
-        echo 'Categories Table Is Created';
-      }
-    } catch (\Throwable $th) {
-      echo $th->getMessage();
-    }
-  }
-
+  
 
   
 }
 
-        // $data=new dbModel();
-        // $data->connect();
-        // $data->createUsersTable();
-        // $data->createCategoriesTable();
-        // $data->createProductTable();
-        // $data->createOrderTable();
+        //  $data=new dbModel();
+        //  $data->connect();
+        //  $data->createUsersTable();
+        //  $data->createProductTable();
+        //  $data->createOrderTable();
 ?>
