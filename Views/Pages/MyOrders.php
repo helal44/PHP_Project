@@ -22,12 +22,21 @@ require_once(dirname(__FILE__).'/../../Controllers/OrderController.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../Public/Styles/style.css">
+  <link rel="stylesheet" href="../../Public/Styles/product.css">
   <title>Myorders Page</title>
 </head>
-<body>
+<body class="myOrder">
+  <div class="container-fluid my-1">
 <?php require_once(dirname(__FILE__).'/../Includes/Navbar.php') ;?>
-  <div class="container my-4">
+</div>
+<div class="container my-4">
+
+        <div class="row my-5 mx-2">
+  
+ 
 
   <div class="row w-100 ">
       <form  method="post" class="row w-100 mx-3">
@@ -41,15 +50,16 @@ require_once(dirname(__FILE__).'/../../Controllers/OrderController.php');
         </div>
 
        <div class="col">
-       <input type="submit" class="btn btn-primary mt-4" value="Search" name="SearchByDate">
+       <input type="submit"  class=" btn mt-4" value="Search" name="SearchByDate">
+ 
        </div>
 
       </form>
   </div>
          
-    <div class=" row w-100 my-4">
+  <div class="row table-contact">
         
-        <table class=" table table-responsive  ">
+        <table class="table mx-5  ">
             <thead>
               
                 <th>Product</th>
@@ -113,6 +123,7 @@ require_once(dirname(__FILE__).'/../../Controllers/OrderController.php');
        
     </div>       
   </div>
+          </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>

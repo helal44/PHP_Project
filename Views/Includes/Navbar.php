@@ -22,10 +22,10 @@
 
  
 <nav class="navbar navbar1 navbar-expand-lg navbar-light">
-<a href="#" class="logo">
+<a href="#" class="logo mb-4">
   <img src="/PHP_Project/Public/Images/Products/logo1.png"  style="height: 80px;width: 120px;">
 </a>
-  <a class="navbar-brand text-white" href="/PHP_Project/Views/Pages/Home.php">Home</a>
+  <a class="navbar-brand text-white  mb-3" href="/PHP_Project/Views/Pages/Home.php">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="collapse-icon">
     <span class="navbar-toggler-icon" id="collapse-icon"></span>
   </button>
@@ -63,7 +63,7 @@
             ?>
                 
               <li class="nav-item">
-                <a class="nav-link text-white" href="/PHP_Project/Views/Pages/MyOrders.php">MyOrders</a>
+                <a class="nav-link text-white  mb-3" href="/PHP_Project/Views/Pages/MyOrders.php">MyOrders</a>
              </li>
                 
             <?php }?>
@@ -92,20 +92,20 @@
 
                 if($number>0){
             ?>
-                <li class="nav-item">
+                <li class="nav-item mt-4">
                     <a class="nav-link text-white" href="/PHP_Project/Views/Pages/MyOrders.php" ><?php  echo 'Your Orders :'. $number ?></a>
                 </li>
                     <?php } ?>
-            <li class="nav-item">
+            <li class="nav-item mt-4">
             <img src="/PHP_Project/Public/Images/Users/<?php echo $_SESSION['image'] ?>" alt="<?php echo $_SESSION['image'] ?>" width="30"/>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mt-4">
                 <p class="nav-link text-white"  ><?php  echo 'Welcome :'. $_SESSION['name'] ?></p>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mt-4">
             <a class="nav-link text-white" href="?logout" ><strong>Logout</strong></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mt-4">
             <?php
               require_once(dirname(__FILE__).'/../Includes/SearchBar.php') ;
              ?>

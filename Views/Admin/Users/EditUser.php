@@ -15,21 +15,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="../../../Public/Styles/product.css"> -->
+ 
+  <link rel="stylesheet" href="../../../Public/Styles/users.css">
+
   <title>Registration Form</title>
 </head>
 <body>
   <div class="container-fluid my-1">
   <?php require_once(dirname(__FILE__).'/../../Includes/Navbar.php') ;?>
-   <div class="row my-4">
-
-   <div class="col-2">
-
+   
    </div>
-   <div class="col-8">
-
- 
-    <form class="form-group shadow  p-4" method="POST" enctype="multipart/form-data" class="form-group">
-    <h2 class="text-center">Edit User Form</h2>
+    <div class="container bg-black">
+        <div class="row my-5 mx-2 ">
+            <div class="row w-100">
+ <div class="form-box container w-75 ">
+ <form class="form-group shadow my-2 mx-3 p-4" method="POST" enctype="multipart/form-data" class="form-group">
+    <h2 class="text-center form-group">Edit User Form</h2>
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" value="<?php echo $data['name'] ?>">
@@ -76,7 +78,7 @@
                 <img src="/project/Public/Images/Users/<?php echo $data['image'] ?>" alt="img" width="80"/>
                 </span>
       </div>
-      <button type="submit" class="btn btn-primary" name="submit">Edit User</button>
+      <button type="submit" class="edit-btn" name="submit">Edit User</button>
 
       <?php
        $user->updateUser();
@@ -88,10 +90,13 @@
        ?>
          
     </form>
+
+ </div>
+   
    </div>
 
-   </div>
-  </div>
+   <!-- </div>
+  </div> -->
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

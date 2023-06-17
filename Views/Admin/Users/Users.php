@@ -21,23 +21,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <title>Home Page</title>
+  <link rel="stylesheet" href="../../../Public/Styles/style.css">
+  <link rel="stylesheet" href="../../../Public/Styles/product.css">
+  <!-- <link rel="stylesheet" href="../../../Public/Styles/users.css"> -->
+
+  <title>Users Page</title>
 </head>
 <body>
-  <div class="container-fluid my-1">
-
-  <?php require_once(dirname(__FILE__).'/../../Includes/Navbar.php') ;?>
-   
-    <div class="row my-5 mx-2">
-        <div class="row w-100">
-                <div class="col-6">
-                    <h4 class="text-center">All Users</h4>
-                </div>
-                <div class="col-6">
-                <a class="nav-link text-center" href="/PHP_Project/Views/Pages/Register.php">Add User</a>
-                </div>
+<div class="container-fluid my-1">
+        <?php require_once dirname(__FILE__) . '/../../Includes/Navbar.php' ?>
+    </div>
+ 
+        <div class="row my-5 mx-2">
+       
+    <div class="my-5 mx-2 table m-auto">
+        <div class="table-header">
+             <h4 class="text-center">All Users</h4>
+              <a class="nav-link text-center btn mt-0" href="/PHP_Project/Views/Pages/Register.php">Add User</a>
         </div>
-        <table class="table table-responsive">
+        <div class=" row table-contact">
+        <table class="table my-5 mx-2 ">
             <thead>
               <th>ID</th>
               <th>Image</th>
@@ -59,15 +62,19 @@
               <td><?php echo $row['room'] ?></td>
               <td><?php echo $row['role'] ?></td>
               <td>
-              <a class="btn btn-danger" href="Users.php?delete=<?php echo $row['id'] ?>&image=<?php echo $row['image'] ?>">Delete</a>
-                     <a class="btn btn-warning my-2" href="EditUser.php?search=<?php echo $row['id'] ?>&image=<?php echo $row['image'] ?>">Update</a>
+              <a class="bg-danger" href="Users.php?delete=<?php echo $row['id'] ?>&image=<?php echo $row['image'] ?>">Delete</a>
+                     <a class="" href="EditUser.php?search=<?php echo $row['id'] ?>&image=<?php echo $row['image'] ?>">Update</a>
               </td>
             </tr>
             <?php }?>
-            </tbody>Edituser
+            </tbody>
         </table>
+        </div>
+       
     </div>
   </div>
+    
+         
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>

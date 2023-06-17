@@ -23,6 +23,7 @@ $User=new UserController();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../Public/Styles/Style.css">
   <link rel="stylesheet" href="../../Public/Styles/manualOrder.css">
   <title>Home Page</title>
 </head>
@@ -33,7 +34,7 @@ $User=new UserController();
 
   <!-- <?php require_once(dirname(__FILE__).'/../Includes/SearchBar.php') ;?> -->
   </div>
-    <div class="container ">
+    <!-- <div class="container ">
         <div class="row my-5 mx-2">
            
             <div class="mx-2  user text-center">
@@ -113,7 +114,57 @@ $User=new UserController();
            </div>
          
         </div>
-    </div>
+    </div> -->
+    <section class="menu " id="menu">
+          <h1 class="heading">our <span>menu</span></h1>
+            <div class="box-container">
+              <?php
+              
+               $products=$Product->SearchProductByName();
+
+                 $ProductData=$Product->ViewProducts();
+               
+
+                  if($products){
+                    while($row=mysqli_fetch_assoc($products)){
+                      if($row['state']=='available'){
+                      ?>
+ 
+    
+                      <div class="box bg-dark">
+                      <img  src="/PHP_Project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
+                     
+                          <h3 ><?php echo $row['name'] ?></h3>
+                          <div class="price"><?php echo $row['price'] ?>EGP <span>20.99</span></div>
+
+                          <a  class="btn" href="?item=<?php echo $row['id'] ?>&price=<?php echo $row['price']?>" >Add to cart</a>
+                      </div>
+                      </div>
+                    <?php } }
+                  }
+
+                  else{
+                    while($row=mysqli_fetch_assoc($ProductData[0])){
+                      if($row['state']=='available'){
+                      ?>
+                      <div class="box bg-dark ">
+                        <img  src="/PHP_Project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
+                     
+                          <h3><?php echo $row['name'] ?></h3>
+                          <div class="price"><?php echo $row['price'] ?>EGP <span>20.99</span></div>
+                          <a  class="btn" href="?item=<?php echo $row['id'] ?>&price=<?php echo $row['price']?>" >Add to cart</a>
+                      </div>
+                  
+                    <?php } }
+                  }
+
+               
+
+              ?>
+              
+            </div>
+              
+ </section>
     <!-- </div> -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

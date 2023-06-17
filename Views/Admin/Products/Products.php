@@ -55,7 +55,7 @@
                 <a class="nav-link text-center" href="./AddProduct.php">Add Product</a>
                 </div>
         </div> -->
-        <div class=" row table-contact">
+        <div class="row table-contact">
 
           <table class="table mx-5 ">
               <thead>

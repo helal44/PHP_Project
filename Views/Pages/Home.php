@@ -78,7 +78,7 @@ $data=$Product->ViewProducts();
              
                   <!-- <hr> -->
                
-            <div class=" d-flex flex-wrap justify-content-center ">
+            <!-- <div class=" d-flex flex-wrap justify-content-center ">
               <?php
               
                $products=$Product->SearchProductByName();
@@ -120,7 +120,7 @@ $data=$Product->ViewProducts();
 
               ?>
               
-            </div>
+            </div> -->
 
 <img class="background-image" src="../../Public/Images/Products/cup.jpg">
 </div>
@@ -140,63 +140,66 @@ Awaken Your Senses with the Finest Coffee Selections Imaginable
 
 
     <!-- menu section start -->
-    <section class="menu" id="menu">
-            <h1 class="heading">our <span>menu</span></h1>
-            <div class="box-container">
-                <div class="box">
+
+                <!-- <div class="box">
                     <img src="../../Public/Images/Products/cat-01.jpg" alt="">
                     <h3>tasty and healthy</h3>
                     <div class="price">$15.99 <span>20.99</span></div>
                     <a href="#"class="btn">add to cart</a>
-                </div>
-                <div class="box">
-                    <img src="../../Public/Images/Products/cat-02.jpg" alt="">
-                    <h3>tasty and healthy</h3>
-                    <div class="price">$15.99 <span>20.99</span></div>
-                    <a href="#"class="btn">add to cart</a>
-                </div>
-                <div class="box">
-                    <img src="../../Public/Images/Products/cat-03.jpg" alt="">
-                    <h3>tasty and healthy</h3>
-                    <div class="price">$15.99 <span>20.99</span></div>
-                    <a href="#"class="btn">add to cart</a>
-                </div>
-                <div class="box">
-                    <img src="../../Public/Images/Products/cat-04.jpg" alt="">
-                    <h3>tasty and healthy</h3>
-                    <div class="price">$15.99 <span>20.99</span></div>
-                    <a href="#"class="btn">add to cart</a>
-                </div>
-                <div class="box">
-                    <img src="../../Public/Images/Products/cat-05.jpg" alt="">
-                    <h3>tasty and healthy</h3>
-                    <div class="price">$15.99 <span>20.99</span></div>
-                    <a href="#"class="btn">add to cart</a>
-                </div>
-                <div class="box">
-                    <img src="../../Public/Images/Products/cat-06.jpg" alt="">
-                    <h3>tasty and healthy</h3>
-                    <div class="price">$15.99 <span>20.99</span></div>
-                    <a href="#"class="btn">add to cart</a>
-                </div>
-                <div class="box">
-                    <img src="../../Public/Images/Products/cat-07.jpg" alt="">
-                    <h3>tasty and healthy</h3>
-                    <div class="price">$15.99 <span>20.99</span></div>
-                    <a href="#"class="btn">add to cart</a>
-                </div>
-                <div class="box">
-                    <img src="../../Public/Images/Products/cat-08.jpg" alt="">
-                    <h3>tasty and healthy</h3>
-                    <div class="price">$15.99 <span>20.99</span></div>
-                    <a href="#"class="btn">add to cart</a>
-                </div>
-            </div>
-        </section>
-     <!-- menu section end -->
-     <div>
+                </div> -->
+          
+<section class="menu" id="menu">
+          <h1 class="heading">our <span>menu</span></h1>
+            <div class="box-container">
+              <?php
+              
+               $products=$Product->SearchProductByName();
+
+                 $ProductData=$Product->ViewProducts();
+               
+
+                  if($products){
+                    while($row=mysqli_fetch_assoc($products)){
+                      if($row['state']=='available'){
+                      ?>
+ 
     
-    </div>
+                      <div class="box">
+                      <img  src="/PHP_Project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
+                     
+                          <h3><?php echo $row['name'] ?></h3>
+                          <div class="price"><?php echo $row['price'] ?>EGP <span>20.99</span></div>
+                          <!-- <h4 class="card-text"><?php echo $row['price'] ?> EGP</h4> -->
+                          <a  href="?item=<?php echo $row['id'] ?>&price=<?php echo $row['price']?>" class="btn" >Add to cart</a>
+                      </div>
+                      </div>
+                    <?php } }
+                  }
+
+                  else{
+                    while($row=mysqli_fetch_assoc($ProductData[0])){
+                      if($row['state']=='available'){
+                      ?>
+                      <div class="box">
+                        <img  src="/PHP_Project/Public/Images/Products/<?php echo $row['image'] ?>" alt="<?php echo $row['image'] ?>" width="150" />
+                     
+                          <h3><?php echo $row['name'] ?></h3>
+                          <div class="price"><?php echo $row['price'] ?>EGP <span>20.99</span></div>
+                          <a  class="btn" href="?item=<?php echo $row['id'] ?>&price=<?php echo $row['price']?>" >Add to cart</a>
+                      </div>
+                  
+                    <?php } }
+                  }
+
+               
+
+              ?>
+              
+            </div>
+              
+ </section>
+     <!-- menu section end -->
+    
       <!-- product section start --> 
      <section>
      <div class="products" id="products">
@@ -242,7 +245,7 @@ Awaken Your Senses with the Finest Coffee Selections Imaginable
      </section>
      <!-- product section end  -->
   
-     <div class="d-flex flex-wrap justify-content-center mt-3 mb-3" >
+     <div class="d-flex flex-wrap justify-content-center " >
             <?php
                 for ($i = 1; $i <=$ProductData[1]; $i++) {
                 
@@ -251,11 +254,12 @@ Awaken Your Senses with the Finest Coffee Selections Imaginable
                 }
               
               ?>
-             
-                <?php require_once(dirname(__FILE__).'/../Includes/Footer.php') ; ?>
+        
             
            </div>
-         
+         <div class="mt-5">
+                 <?php require_once(dirname(__FILE__).'/../Includes/Footer.php') ; ?>
+         </div>
   
   
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

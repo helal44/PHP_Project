@@ -204,3 +204,9 @@ body{
   color: #fff;
  
 }
+.myOrder{
+  min-height: 100vh;
+  background: url("../Images/Products/photo.jpg") center /cover !important ;
+  color: #fff;
+ 
+}

@@ -1,0 +1,100 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url("../Images/productPage.jpg") center/cover;
+    
+}
+
+/* .form-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 43%;
+    height: 220;
+    padding: 60px 30px ;
+   
+    background: rgba(0,0,0,0.6);
+    padding-bottom: 5%;
+    padding-top: 50px;
+
+} */
+
+.form-box{
+  width: 82vw;
+  /* height: 90vh; */
+  background-color:#fff5 ;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0.4rem 0.8rem #0005;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+h2{
+    padding: 0 0 5px;
+    font-weight: bold;
+    color: #38220f;
+    text-align: center;
+}
+
+.form-box div label{
+    font-weight: bold;
+    color: #38220f;
+}
+
+.edit-btn{
+    border: none;
+    outline: none;
+    background:  #634832;
+    color: white;
+    height: 40px;
+    font-size: 16px;
+   cursor: pointer;
+   border-radius: 20px;
+   width: 100%;
+   margin:5px 0 ;
+}
+
+.edit-btn:hover{
+   
+    background-color: rgb(149,125,97);
+  
+}
+
+.form-box div input, .form-box div select {
+    width: 100%;
+    margin-bottom: 25px;
+    border: none;
+    outline: none;
+    border:1px solid white ;
+    background: transparent;
+    color: white;
+    height: 40px;
+    font-size: 16px;
+  
+  
+  }
+
+
+  /* .form-box div select option {
+    margin: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  } */
+  
+  select option[value="1"] {
+    background: rgba(100, 100, 100, 0.384);
+  }
+  
+  select option[value="2"] {
+    background: rgba(150, 150, 150, 0.3);
+  }
+  
+  select option[value="3"] {
+    background: rgba(200, 200, 200, 0.3);
+  }
