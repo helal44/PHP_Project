@@ -15,14 +15,15 @@
         <button class="btn">Subscribe</button>
     </div>
 </div>
-
+<div class="container">
 <footer>
-    <div class="overlay"></div>
-    <div class="footer-content text-center">
-        <div class="img-box">
-            <!-- <img src="img/footer-background.jpg" alt=""> -->
+  
+
+        <div class="img-box text-center">
+
                 <h1>BOOK SHOP</h1>
         </div>
+     
         <div class="inner-footer">
             <div class="footercard">
                 <h3>about us</h3>
@@ -72,11 +73,13 @@
                </div>
             </div>
         </div>
-        <div class="bottom-footer">
+        <div class="bottom-footer text-center">
             <p>all right reserved - 2023</p>
         </div>
-    </div>
+       
+    
 </footer>
+</div>
   
 </body>
 </html>

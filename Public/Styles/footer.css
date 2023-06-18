@@ -181,21 +181,16 @@ footer .overlay{
 }
 
 footer .inner-footer{
+
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(18rem,1fr));
-    align-items: center;
-    /* text-align: center; */
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    justify-content: center;
-    padding: 3rem 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(12rem,1fr));
+    gap:1rem;
     color: white;
 }
 footer .inner-footer .footercard h3{
   margin: 10px 0;
   color: #967259;
-  font-size: 20px;
+  font-size: 25px;
   text-transform: uppercase;
 }
 
@@ -207,7 +202,8 @@ footer ,.inner-footer .footercard li{
    cursor: pointer;
    line-height:1.5rem;
    text-transform: capitalize;
-   font-size: 16px;
+   font-size: 20px;
+   font-weight: bold;
 
 }
 
@@ -233,7 +229,7 @@ footer .inner-footer .footercard .social-links i{
   border-radius:50%;
   background: white;
   box-shadow: var(--box-shadow);
-  text-align: center;
+  /* text-align: center; */
   color: #5d5d5d;
   cursor: pointer;
   margin: 3px;
@@ -244,9 +240,13 @@ footer .inner-footer .footercard .social-links i{
 }
 footer .bottom-footer {
     text-transform: capitalize;
-    text-align: center;
     padding-top: 3rem ;
-    color: white;
-    /* padding-bottom: 0.1rem; */
+    font-size: 25px;
+    font-weight: bold;
+    color:#fff;
 }
 
+.img-box{
+    padding: 2rem;
+    color: #d1ad8e;
+}

@@ -116,8 +116,21 @@ $User=new UserController();
         </div>
     </div> -->
     <section class="menu " id="menu">
-          <h1 class="heading">our <span>menu</span></h1>
-            <div class="box-container">
+    <div class="text-center ">
+            <?php  
+
+        $users=$User->ViewUSers();
+
+        foreach($users as $row){
+
+        echo '<a class="text-light" href="?search='.$row['id'].'&room='.$row['room'].'"> '.$row['name'] .'</a><br>';
+
+        }
+        ?>
+        <div class="text-center">
+            <?php    $Order->AdminAddItem(); ?>
+        </div>
+            <div class="box-container mt-3">
               <?php
               
                $products=$Product->SearchProductByName();

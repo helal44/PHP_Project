@@ -42,8 +42,8 @@
                 <div class="col text-center">
             <h4>All Products</h4>
           </div>
-          <div class="col text-center">
-            <a class="nav-link " href="./AddProduct.php">Add Product</a>
+          <div class="col text-center mb-5">
+            <a class="nav-link  " href="./AddProduct.php">Add Product</a>
           </div>
         </div>
 

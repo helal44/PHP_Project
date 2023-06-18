@@ -20,20 +20,26 @@ require_once(dirname(__FILE__).'/../../Controllers/UserController.php');
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../Public/Styles/style.css">
+  <link rel="stylesheet" href="../../Public/Styles/product.css">
   <title>Myorders Page</title>
 </head>
-<body>
+<body class="bg text-light">
+  <div>
 <?php require_once(dirname(__FILE__).'/../Includes/Navbar.php') ;?>
-  <div class="container my-4">
- <div class="row w-100 my-5">
+</div>
+    <div class="container">
+        <div class="row my-5 mx-2">
+            <div class="row  w-100 user">
 
+ 
     
       <ul class="number" >
-        <label >Select USer</label>
+        <!-- <label >Select USer</label> -->
       <?php
         $users=$User->ViewUSers();
         foreach($users as $row){  ?>
-            <li ><a  href="?user_id=<?php echo $row['id'] ?>"> <?php echo $row['name'] ?> </a></li>
+            <li ><a class="text-light" href="?user_id=<?php echo $row['id'] ?>"> <?php echo $row['name'] ?> </a></li>
         <?php } ?>
       </ul>
   
@@ -60,9 +66,9 @@ require_once(dirname(__FILE__).'/../../Controllers/UserController.php');
       </form>
   </div>
          
-    <div class=" row w-100 my-4">
+    <div class=" row table-contact">
         
-        <table class=" table table-responsive  ">
+        <table class=" table  mx-5   ">
             <thead>
               
                 <th>Product</th>
@@ -106,7 +112,7 @@ require_once(dirname(__FILE__).'/../../Controllers/UserController.php');
             </tbody>
         </table>
        
-       
+       <div>
     </div>       
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

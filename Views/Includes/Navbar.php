@@ -25,7 +25,7 @@
 <a href="#" class="logo mb-4">
   <img src="/PHP_Project/Public/Images/Products/logo1.png"  style="height: 80px;width: 120px;">
 </a>
-  <a class="navbar-brand text-white  mb-3" href="/PHP_Project/Views/Pages/Home.php">Home</a>
+  <a class="navbar-brand text-white " href="/PHP_Project/Views/Pages/Home.php">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="collapse-icon">
     <span class="navbar-toggler-icon" id="collapse-icon"></span>
   </button>
@@ -50,6 +50,9 @@
               <a class="nav-link text-white" href="/PHP_Project/Views/Admin/Categories/Categories.php">Categories</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link text-white" href="/PHP_Project/Views/Admin/checks.php">Checks</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-white" href="/PHP_Project/Views/Admin/CurrentOrders.php">CurrentOrders</a>
             </li>
            
@@ -62,8 +65,8 @@
                 else if(isset($_SESSION['role'])){
             ?>
                 
-              <li class="nav-item">
-                <a class="nav-link text-white  mb-3" href="/PHP_Project/Views/Pages/MyOrders.php">MyOrders</a>
+              <li class="nav-item ">
+                <a class="nav-link text-white " href="/PHP_Project/Views/Pages/MyOrders.php">MyOrders</a>
              </li>
                 
             <?php }?>
@@ -81,7 +84,7 @@
             <img src="/PHP_Project/Public/Images/Users/<?php echo $_SESSION['image'] ?>" alt="<?php echo $_SESSION['image'] ?>" width="30"/>
             </li>
             <li class="nav-item">
-                <p class="nav-link text-primary" ><?php  echo 'Welcome Admin:'. $_SESSION['name'] ?></p>
+                <p class="nav-link text-light" ><?php  echo ' Admin:'. $_SESSION['name'] ?></p>
             </li>
             <li class="nav-item">
             <a class="nav-link text-white " href="?logout" ><strong>Logout</strong></a>
