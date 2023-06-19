@@ -339,7 +339,6 @@ class UserController extends UserModel {
   //Check If User Exist Or Not and send verification code by mail-----------------------------------------------
   function isUserExist()
   {
-    session_start();
     try {
       if (isset($_POST['submit'])) {
         $email = $_POST['email'];
@@ -348,12 +347,12 @@ class UserController extends UserModel {
           $result = $this->checkRest($email);
           if ($result) {
             $data = mysqli_fetch_assoc($result);
-            // session_start();
+            session_start();
             $_SESSION['info'] = "Verification Code Sent To your Email :)";
             $_SESSION['email'] = $data['email'];
             $token = rand(999999, 111111);
             $_SESSION['token'] = $token;
-            $res = $this->updateToken($data['email'], $token);
+            $res = $this->updateToken($data['id'], $token);
             if ($res) {
               $mail = mailer($data['email'], $data['name'], $token);
               $mail->send();
@@ -381,7 +380,7 @@ class UserController extends UserModel {
   function checkCode()
   {
     try {
-      //  session_start();
+       session_start();
       if (isset($_POST['submit'])) {
         $token = $_POST['code'];
         $email = $_SESSION['email'];

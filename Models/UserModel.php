@@ -123,10 +123,10 @@ class UserModel extends dbModel{
     }
 
     //insert token for validation-------------------------------------------------------------------------------
-    function updateToken($email, $token)
+    function updateToken($id, $token)
     {
         $con = $this->connect();
-        $sql = "UPDATE `Users` SET `token`='$token' WHERE email='$email'";
+        $sql = "UPDATE `Users` SET `token`='$token' WHERE id='$id'";
         $data = mysqli_query($con, $sql);
         if ($data) {
             return true;
