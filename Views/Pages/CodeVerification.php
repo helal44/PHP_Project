@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once dirname(__FILE__) . '/../../Controllers/UserController.php';
 $user = new UserController();
 ?>
