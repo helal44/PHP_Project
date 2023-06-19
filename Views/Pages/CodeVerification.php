@@ -31,7 +31,6 @@ $user = new UserController();
             <input type="text" class="form-control" id="code" name="code" placeholder="Enter your code">
           </div>
           <button type="submit" class="btn btn-primary mb-4" name="submit">Confirm</button><br>
-          <!-- <?php echo $_SESSION['token']; ?> -->
           <?php $user->checkCode(); ?>
         </form>
       </div>

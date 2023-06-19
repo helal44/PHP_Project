@@ -1,7 +1,7 @@
 <?php
 require_once('dbModel.php');
 class CategoryModel extends dbModel {
-    // Insert New Category
+    // Insert New Category--------------------------------------------------------------------------------------
     function insert($name){
         $con = $this->connect();
         $sql = "INSERT INTO `Categories` (`name`)
@@ -15,7 +15,7 @@ class CategoryModel extends dbModel {
         }
     }
 
-    // Get ALL Categories
+    // Get ALL Categories---------------------------------------------------------------------------------------
     function view(){
         $con = $this->connect();
         $sql = "SELECT * FROM `Categories`";
@@ -27,7 +27,7 @@ class CategoryModel extends dbModel {
         }
     }
 
-    //  Delete Category
+    //  Delete Category-----------------------------------------------------------------------------------------
     function delete($id){
         $con = $this->connect();
         $sql = "DELETE FROM `Categories` WHERE id=$id";

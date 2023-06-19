@@ -109,7 +109,7 @@ class UserModel extends dbModel{
 
 
 
-    //Check Email For Reset Password
+    //Check Email For Reset Password----------------------------------------------------------------------------
     function checkRest($email)
     {
         $con = $this->connect();
@@ -122,7 +122,7 @@ class UserModel extends dbModel{
         }
     }
 
-    //insert token for validation
+    //insert token for validation-------------------------------------------------------------------------------
     function updateToken($email, $token)
     {
         $con = $this->connect();
@@ -135,7 +135,7 @@ class UserModel extends dbModel{
         }
     }
 
-    //update password and token
+    //update password and token----------------------------------------------------------------------------------
     function restPassword($mail, $pass)
     {
         $con = $this->connect();
