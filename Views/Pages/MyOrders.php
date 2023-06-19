@@ -83,11 +83,11 @@ require_once(dirname(__FILE__).'/../../Controllers/OrderController.php');
                 ?>
                 <tr>
                     <td><?php echo $row['name'] ?></td>
-                    <td> <img class="card-image-top" src="/project/Public/Images/Products/<?php echo $row['image'] ?>" alt="img" width="50" /></td>
+                    <td> <img class="card-image-top" src="/PHP_Project/Public/Images/Products/<?php echo $row['image']  ?>" alt="img" width="50" /></td>
                     <td>
-                        <a href="?decrease=<?php echo $row['product_id'] ?>&id=<?php echo $row['id']?>" class="display-5 btn btn-warning">-</a>
+                        <a href="?decrease=<?php echo $row['product_id'] ?>&id=<?php echo $row['id']?>" class="">-</a>
                         <?php echo $row['amount'] ?>
-                        <a href="?increase=<?php echo $row['product_id'] ?>&id=<?php echo $row['id']?>" class="display-5 btn btn-primary my-2">+</a>
+                        <a href="?increase=<?php echo $row['product_id'] ?>&id=<?php echo $row['id']?>" class="  my-2">+</a>
                     </td>
                     <td>
                       <?php if($row['state']=='confirm'){
@@ -105,9 +105,9 @@ require_once(dirname(__FILE__).'/../../Controllers/OrderController.php');
                     <td><?php echo $row['note'] ?> </td>
                     <td>
                        
-                        <a href="./EditOrder.php?search=<?php echo $row['product_id'] ?>" class="btn btn-warning mt-2">Edit</a>
-                        <a href="?confirm=<?php echo $row['id'] ?>" class="btn btn-primary mt-2">Confirm</a>
-                        <a href="?cancel=<?php echo $row['id'] ?>" class="btn btn-danger mt-2">Cancel</a>
+                        <a href="./EditOrder.php?search=<?php echo $row['product_id'] ?>" class=" mt-2">Edit</a>
+                        <a href="?confirm=<?php echo $row['id'] ?>" class="  mt-2">Confirm</a>
+                        <a href="?cancel=<?php echo $row['id'] ?>" class=" mt-2">Cancel</a>
                     </td>
                 </tr>
                 <?php }?>

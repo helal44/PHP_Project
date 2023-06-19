@@ -37,7 +37,7 @@ $Order->GetOrderDone();
 
             <thead class=" mx-5">
               
-                <th>Product</th>
+                <th>User</th>
                 <th>Image</th>
                 <th>Amount</th>
                 <th>Status</th>
@@ -58,7 +58,7 @@ $Order->GetOrderDone();
                 ?>
                 <tr>
                     <td><?php echo $row['name'] ?></td>
-                    <td> <img class="card-image-top" src="/project/Public/Images/Users/<?php echo $row['image'] ?>" alt="img" width="50" /></td>
+                    <td> <img class="card-image-top" src="/PHP_Project/Public/Images/Users/<?php echo $row['image'] ?>" alt="img" width="50" /></td>
                     <td>  <?php echo $row['amount'] ?>   </td>
                     <td>   <?php 
                             if($row['state']=='done'){

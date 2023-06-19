@@ -172,30 +172,30 @@
                     }
                 }
 
-                // else{
+                else{
 
 
 
-                //     // session_start();
+                    // session_start();
 
-                //     $user_id=$_SESSION['id'];  // for current user to show his ordesr
+                    $user_id=$_SESSION['id'];  // for current user to show his ordesr
    
-                //     if(isset($_POST['SearchByDate'])){
-                //        $from=$_POST['from'];
-                //        $to=$_POST['to'];
-                //        $result=$this->userSearch($user_id,$from,$to);
-                //        if($result){
-                //            return $result;
-                //        }
-                //     }
-                //     else{
-                //        $result=$this->userSearch($user_id);
-                //        if($result){
-                //            return $result;
-                //        }
-                //     }
+                    if(isset($_POST['SearchByDate'])){
+                       $from=$_POST['from'];
+                       $to=$_POST['to'];
+                       $result=$this->userSearch($user_id,$from,$to);
+                       if($result){
+                           return $result;
+                       }
+                    }
+                    else{
+                       $result=$this->userSearch($user_id);
+                       if($result){
+                           return $result;
+                       }
+                    }
 
-                // }
+                }
                
             } catch (\Throwable $th) {
                 throw $th;
