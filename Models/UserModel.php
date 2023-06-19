@@ -109,7 +109,7 @@ class UserModel extends dbModel{
 
 
 
-    //Check Email For Reset Password
+    //Check Email For Reset Password----------------------------------------------------------------------------
     function checkRest($email)
     {
         $con = $this->connect();
@@ -122,11 +122,11 @@ class UserModel extends dbModel{
         }
     }
 
-    //insert token for validation
-    function updateToken($email, $token)
+    //insert token for validation-------------------------------------------------------------------------------
+    function updateToken($id, $token)
     {
         $con = $this->connect();
-        $sql = "UPDATE `Users` SET `token`='$token' WHERE email='$email'";
+        $sql = "UPDATE `Users` SET `token`='$token' WHERE id='$id'";
         $data = mysqli_query($con, $sql);
         if ($data) {
             return true;
@@ -135,7 +135,7 @@ class UserModel extends dbModel{
         }
     }
 
-    //update password and token
+    //update password and token----------------------------------------------------------------------------------
     function restPassword($mail, $pass)
     {
         $con = $this->connect();

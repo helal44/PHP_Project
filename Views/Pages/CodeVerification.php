@@ -31,11 +31,9 @@ $user = new UserController();
             <input type="text" class="form-control" id="code" name="code" placeholder="Enter your code">
           </div>
           <button type="submit" class="btn btn-primary mb-4" name="submit">Confirm</button><br>
-          <!-- <?php echo $_SESSION['token']; ?> -->
           <?php $user->checkCode(); ?>
         </form>
       </div>
-   
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>

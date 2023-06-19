@@ -5,7 +5,7 @@ class CategoryController extends CategoryModel{
 
   public $errors=array();
 
-  // Validate Category
+  // Validate Category------------------------------------------------------------------------------------------
     function categoryValidate($name){
         try {
             if (empty($name)) {
@@ -21,7 +21,7 @@ class CategoryController extends CategoryModel{
         }
     }
 
-  //  Insert Category
+  // Insert Category-------------------------------------------------------------------------------------------
     function insertCategory(){
         try {
             if (isset($_POST['addCategory'])) {
@@ -41,7 +41,7 @@ class CategoryController extends CategoryModel{
         }
     }
 
-    // View All Categories 
+    // View All Categories--------------------------------------------------------------------------------------
     function ViewCategories(){
         try {
             $result = $this->view();
@@ -53,7 +53,7 @@ class CategoryController extends CategoryModel{
         }
     }
 
-    // Delete Category 
+    // Delete Category------------------------------------------------------------------------------------------
     function DeleteCategory(){
         try {
             if (isset($_GET['delete'])) {

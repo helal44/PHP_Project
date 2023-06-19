@@ -1,8 +1,6 @@
 <?php 
 
-use \PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-// use PHPMailer\PHPMailer\Exception;
+require_once('mail.php');
 
 // require_once('dbController.php');
  require_once(dirname(__FILE__).'/../Models/UserModel.php');
@@ -325,7 +323,7 @@ class UserController extends UserModel {
 
 
 
-  // Validate Reset Email
+  // Validate Reset Email---------------------------------------------------------------------------------------
   function ValidateReset($email)
   {
     if (empty($email)) {
@@ -338,10 +336,9 @@ class UserController extends UserModel {
     return $this->errors;
   }
 
-  //Check If User Exist Or Not
+  //Check If User Exist Or Not and send verification code by mail-----------------------------------------------
   function isUserExist()
   {
-    session_start();
     try {
       if (isset($_POST['submit'])) {
         $email = $_POST['email'];
@@ -350,16 +347,20 @@ class UserController extends UserModel {
           $result = $this->checkRest($email);
           if ($result) {
             $data = mysqli_fetch_assoc($result);
-           
+            session_start();
             $_SESSION['info'] = "Verification Code Sent To your Email :)";
             $_SESSION['email'] = $data['email'];
             $token = rand(999999, 111111);
             $_SESSION['token'] = $token;
-            $res = $this->updateToken($data['email'], $token);
+            $res = $this->updateToken($data['id'], $token);
             if ($res) {
-              // $this->sendEmail($email,$data['name'],$token);
-              header('Location:./CodeVerification.php');
-              exit();
+              $mail = mailer($data['email'], $data['name'], $token);
+              $mail->send();
+              if ($mail->send()) {
+                header('Location:./CodeVerification.php');
+              } else {
+                echo " <br><span class='alert alert-danger mt-5'>Failed To Send Code</span><br>";
+              }
             } else {
               echo "Failed while sending code!";
             }
@@ -375,45 +376,7 @@ class UserController extends UserModel {
     }
   }
 
-  //send verification code by mail
-  //   function sendEmail($email,$name,$token){ 
-  //     $mail = new PHPMailer(true); 
-  //     try {
-  //         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                  
-  //         $mail->isSMTP();                                           
-  //         $mail->Host       = 'smtp.gmail.com';                    
-  //         $mail->SMTPAuth   = true;                                  
-  //         $mail->Username   = 'goo.chrom312@gmail.com';                    
-  //         $mail->Password   = 'secret';                              
-  //         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;           
-  //         $mail->Port       = 587;         
-
-  //         //Recipients
-  //         $mail->setFrom('goo.chrom312@gmail.com', $name);
-  //         $mail->addAddress('ahmed.abdelmawla312@gmail.com');     
-  //         // $mail->addAddress('ellen@example.com');              
-  //         // $mail->addReplyTo('info@example.com', 'Information');
-  //         // $mail->addCC('cc@example.com');
-  //         // $mail->addBCC('bcc@example.com');
-
-  //         //Attachments
-  //         // $mail->addAttachment('/var/tmp/file.tar.gz');     
-  //         // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');
-
-  //         //Content
-  //         $mail->isHTML(true);                                 
-  //         $mail->Subject = 'Reset Password Code';
-  //         $mail->Body    = "Your Verification code is : $token";
-  //         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-  //         $mail->send();
-  //         echo 'Message has been sent';
-  //     } catch (Exception $e) {
-  //         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-  //     }
-  // }
-
-  //check if token is matched
+  //check if token is matched ----------------------------------------------------------------------------------
   function checkCode()
   {
     try {
@@ -436,7 +399,7 @@ class UserController extends UserModel {
     }
   }
 
-  //rest password and remove token
+  //rest password and remove token-----------------------------------------------------------------------------
   function restPass()
   {
     try {
@@ -454,7 +417,7 @@ class UserController extends UserModel {
         } else {
           $res = $this->restPassword($email, $pass);
           if ($res) {
-            // header('Location:./Login.php');
+            header('Location:./Login.php');
           } else {
             echo " <br><span class='alert alert-danger mt-5'>Failed To Update Password Try Again</span><br>";
           }
