@@ -22,9 +22,9 @@ html{
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
 }
-/* body{
+body{
     background: var(--bg);
-} */
+}
 .navbar1 {
     top: 0;
     left: 0;
