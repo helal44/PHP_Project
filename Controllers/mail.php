@@ -13,7 +13,7 @@ function mailer($email,$name,$token){
         $mail->SMTPSecure = 'tls';
         $mail->Port = '587';                         
         $mail->Username   = "goo.chrom312@gmail.com";
-        $mail->Password   = 'duvxzhkoyvakcqwu';
+        $mail->Password   = '';
         $mail->setFrom('goo.chrom312@gmail.com', 'Cafeteria');
         $mail->addAddress($email, $name);
         $mail->isHTML(true);
